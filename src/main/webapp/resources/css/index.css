@@ -1,0 +1,156 @@
+@charset "utf-8";
+@import url(//http://www.google.com/fonts/earlyaccess);
+
+
+* {
+    margin: 0; padding: 0;
+    font-family: 'Jeju Gothic', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+@media only screen and (min-width : 1025px) {
+	/* index 메인화면 슬라이드 부분 */
+    section {
+        margin: 0 auto;
+        border-bottom: 1px solid #000;
+    }
+    #fist_main {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #main_slider {
+        width: 100%; height: 80vh;
+        margin: 0 auto;
+        background: url("../image/hello.png") no-repeat 350px / cover;
+        position: relative;
+
+    }
+    /* #main_slider:after {
+        content: "";
+        width: 1920px; height: 80vh;
+        position: absolute; top: 0; left: 0;
+        background-color: #000;
+        opacity: 0.4;
+        z-index: -1;
+    } */
+    .search_bar {
+        width: 40%;
+        padding: 15px;
+        background: #1A2B49;
+        border-radius: 10px;
+        z-index: 999;
+        position: absolute; top: 65%; left: 7%;
+    }
+    .search_bar > input {
+        width: 80%; height: 40px;
+        z-index: 9999;
+        border: none;
+        text-indent: 50px;
+        border-radius: 10px;
+        outline: none;
+        background: #fff url("../image/search.png") no-repeat 10px;
+    }
+    .search_bar button {
+        width: 15%; height: 40px;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        margin-left: 5px;
+        border-radius: 20px;
+        background-color: #0071EB;
+    }
+    .search_bar button:hover {
+        color: #000;
+        background-color: #fff;
+        border: 1px solid rgb(219, 219, 219);
+        transition: 0.4s;
+    }
+    .welcome_msg {
+        font-size: 40px;
+        font-weight: bold;
+        position: absolute; top: 43%; left: 7%;
+    }
+    /* main_second pinbox zone */
+    #second_main {
+        width: 100%; height: 80vh;
+        border-bottom: 1px solid #000;
+    }
+    .pinbox_wrap {
+        width: 70%; height: 100%;
+        margin: 0 auto;
+        
+    }
+    .pinbox_wrap > h2 {
+        text-align: center;
+        padding-top: 20px;
+        margin-bottom: 40px;
+    }
+    .pinbox {
+        width: 30%; height: 60%;
+        border: 1px solid #000;
+        float: left;
+    }
+    .left {
+        margin-right: 4.69%;
+    }
+    .right {
+        margin-left: 4.7%;
+    }
+    
+    
+    /* third_main */
+    #third_main {
+        width: 100%; height: 70vh;
+    }
+/* ------------------------------------------------------------------ */
+    /* footer */
+    footer {
+        padding: 100px;
+        background-color: #1A2B49;
+    }
+}
+
+@media only screen and (min-width : 1920px) {
+	/* 메인 슬라이드쇼(동영상으로 대체 할지도 모름) */
+    #main_slider {
+        width: 100%; height: 80vh;
+        margin: 0 auto;
+        background: url("../image/hello.png") no-repeat left;
+        position: relative;
+        z-index: -99;
+    }
+    .search_bar {
+        width: 40%;
+        padding: 15px;
+        background: #1A2B49;
+        border-radius: 10px;
+        z-index: 999;
+        position: absolute; top: 60%; left: 10%;
+    }
+    .welcome_msg {
+        font-size: 40px;
+        font-weight: bold;
+        position: absolute; top: 43%; left: 10%;
+    }
+    /* second content */
+    .pinbox_wrap > h2 {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .pinbox {
+        width: 30%; height: 60%;
+        border: 1px solid #000;
+        float: left;
+    }
+    .left {
+        margin-right: 4.8%;
+    }
+    .right {
+        margin-left: 4.7%;
+    }
+}
