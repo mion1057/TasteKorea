@@ -49,7 +49,7 @@
 						<h3>지역</h3>
 						<form:select path="region">
 	                    	<option value="0">-- 선택 --</option>
-		                    <form:options items="${regionList}"  />
+		                    <form:options items="${regionList}"  itemLabel="kor" itemValue="eng"/>
 		                </form:select>
 					</div>
 					<div id="third_box">

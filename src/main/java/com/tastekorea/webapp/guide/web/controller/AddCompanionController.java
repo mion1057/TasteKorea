@@ -19,6 +19,7 @@ import com.tastekorea.webapp.guide.service.ForeignLanguageService;
 import com.tastekorea.webapp.guide.web.command.CompanionCommand;
 import com.tastekorea.webapp.guide.web.command.Language;
 import com.tastekorea.webapp.guide.web.command.LanguageSkillCommand;
+import com.tastekorea.webapp.guide.web.command.Region;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -123,18 +124,22 @@ public class AddCompanionController {
 	}	
 	
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@ModelAttribute("regionList")
-	public List<String> getAllRegions(){
-		List<String> list = new ArrayList<>();
-		list.add("서울");
-		list.add("부산");
-		list.add("대구");
-		list.add("광주");
-		list.add("제주");
-		list.add("인천");
-		list.add("춘천");
-		list.add("울릉도");
-		list.add("평양");
+	public List<Region> getAllRegions(){
+		List<Region> list = new ArrayList<>();
+		list.add(new Region("Seoul", "서울"));
+		list.add(new Region("Busan", "부산"));
+		list.add(new Region("Daegu", "대구"));
+		list.add(new Region("Gwangju", "광주"));
+		list.add(new Region("Jeju", "제주"));
+		list.add(new Region("Incheon", "인천"));
+		list.add(new Region("Chuncheon", "춘천"));
+		list.add(new Region("Pyungyang", "평양"));
+		
 		return list;
 	}
 	
