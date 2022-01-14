@@ -1,5 +1,7 @@
 package com.tastekorea.webapp.guide.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -32,5 +34,28 @@ public interface CompanionService {
 	 * @return
 	 */
 	Page<Companion> getCompanionList(Pageable pageable);
+	
+	
+	/**
+	 * 가이드 목록을 List로 조회
+	 * 
+	 * @param companion
+	 * @return
+	 */
+	List<Companion> getAllCompanionList();
+	
+	/**
+	 * 회원가입시 email 중복체크
+	 * 
+	 * @param email
+	 * @return
+	 */
+	boolean isEmailCheck(String email);
 
+
+	Companion login(String email);
+
+
+	boolean ruCompanion(String email);
+	
 }

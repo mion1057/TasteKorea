@@ -13,12 +13,13 @@ import org.springframework.stereotype.Repository;
 
 import com.tastekorea.webapp.common.dao.TasteDao;
 import com.tastekorea.webapp.guide.domain.Companion;
+import com.tastekorea.webapp.guide.dao.CompanionRowMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Repository
-public class CompanionDao extends TasteDao{
+public class CompanionDao extends TasteDao {
 
 	/**
 	 * 신규 가이드 등록
@@ -29,17 +30,15 @@ public class CompanionDao extends TasteDao{
 	public Companion save(Companion companion) {
 		long id = add(companion);
 		log.debug("신규 companion saved and return id: " + id);
-		
+
 		companion.setId(id);
 		return companion;
 	}
-	
-	
+
 	public long add(Companion companion) {
-		String sql = "INSERT INTO Companion(email, passwd, name, phone, ssn, "
-				+ " sex, photo, introduction, region)"
+		String sql = "INSERT INTO Companion(email, passwd, name, phone, ssn, " + " sex, photo, introduction, region)"
 				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		
+
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		PreparedStatementCreator preparedStatementCreator = (connection) -> {
 			PreparedStatement pstmt = connection.prepareStatement(sql, new String[] { "id" });
@@ -52,14 +51,13 @@ public class CompanionDao extends TasteDao{
 			pstmt.setString(7, companion.getPhoto());
 			pstmt.setString(8, companion.getIntroduction());
 			pstmt.setString(9, companion.getRegion());
-			
+
 			return pstmt;
 		};
 		jdbcTemplate.update(preparedStatementCreator, keyHolder);
 		return keyHolder.getKey().longValue();
 	}
-	
-	
+
 	/**
 	 * 가이드 id로 조회
 	 * 
@@ -70,8 +68,7 @@ public class CompanionDao extends TasteDao{
 		String sql = "SELECT * FROM Companion WHERE id = ?";
 		return jdbcTemplate.queryForObject(sql, new CompanionRowMapper(), id);
 	}
-	
-	
+
 	/**
 	 * 가이드 email로 조회
 	 * 
@@ -83,19 +80,14 @@ public class CompanionDao extends TasteDao{
 		return jdbcTemplate.queryForObject(sql, new CompanionRowMapper(), email);
 	}
 
-	
 	/**
-	 * sql : SELECT * FROM Companion regDate DESC LIMIT 2 OFFSET 0
-	 * 	LIMIT n		: 가져올 행의 수 (0이면 아무것도 안가져옴)
-	 * 	OFFSET n	: 가져올 행의 시작(첫 행이 0부터 시작)
-	 * 	
-	 * 	LIMIT n = LIMIT n OFFSET 0
-	 * 	LIMIT size OFFSET start = LIMIT start, size
+	 * sql : SELECT * FROM Companion regDate DESC LIMIT 2 OFFSET 0 LIMIT n : 가져올 행의
+	 * 수 (0이면 아무것도 안가져옴) OFFSET n : 가져올 행의 시작(첫 행이 0부터 시작)
 	 * 
-	 * 결론 
-	 * 	-. 페이징시 한 페이지의 크기는 LIMIT으로 지정
-	 * 	-. 페이지 번호는 OFFSET으로 지정
-	 * 		-. 한 페이지 크기가 10이고 2페이지를 조회하려면 LIMIT 10 OFFSET (2 * LIMIT
+	 * LIMIT n = LIMIT n OFFSET 0 LIMIT size OFFSET start = LIMIT start, size
+	 * 
+	 * 결론 -. 페이징시 한 페이지의 크기는 LIMIT으로 지정 -. 페이지 번호는 OFFSET으로 지정 -. 한 페이지 크기가 10이고
+	 * 2페이지를 조회하려면 LIMIT 10 OFFSET (2 * LIMIT
 	 * 
 	 * sql : SELECT * FROM Companion ORDER BY regDate DESC LIMIT 2 OFFSET 0
 	 * 
@@ -105,9 +97,25 @@ public class CompanionDao extends TasteDao{
 	public Page<Companion> findAll(Pageable pageable) {
 		String sql = pagingQuery("SELECT * FROM Companion", pageable);
 		List<Companion> list = jdbcTemplate.query(sql, new CompanionRowMapper());
-		 
+
 		return new PageImpl<Companion>(list, pageable, count("Companion"));
 	}
-	
-}
 
+	public Companion login(String email) {
+		String sql = "SELECT * FROM Companion WHERE email = ?";
+		return jdbcTemplate.queryForObject(sql, new CompanionRowMapper(), email);
+	}
+
+	//  내가 만들어볼 이메일 체크 함수
+	public boolean isEmailCheck(String email) {
+		System.out.println("DAO들어왔습니까?");
+		String sql = "SELECT * FROM COMPANION WHERE email=?";
+		List<Companion> list = null;
+		list = jdbcTemplate.query(sql, new CompanionRowMapper(), email);
+
+		if (list == null || list.equals(null) || list.size() == 0) {
+			return true;
+		}
+		return false;
+	}
+}

@@ -26,9 +26,9 @@
                 <h1>taste<span>Korea</span></h1>
                 <h2>Welcome</h2>
                 <div id="text_box">
-                    <h2>${companion.name }님 환영합니다.</h2>
-                    <h2>여행객들의 길잡이가 되어주세요</h2>
-                    <a href="/guide/companion/login">로그인</a>
+                    <h2>${traveler.name }님 환영합니다.</h2>
+                    <h2>즐거운 여행 되세요!</h2>
+                    <a href="/user/traveler/login">로그인</a>
                     <a href="/">홈으로</a>
                 </div>
             </div>

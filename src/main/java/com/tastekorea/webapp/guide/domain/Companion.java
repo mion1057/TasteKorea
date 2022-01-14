@@ -1,7 +1,6 @@
 package com.tastekorea.webapp.guide.domain;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -55,7 +54,7 @@ public class Companion extends CommonEntity{
 	//------------------------
 	//		제공가능한 서비스
 	//------------------------
-	//private String provision;	//ex) 운전가능
+	private String provision;	//ex) 운전가능
 	
 	//------------------------
 	//		기타
@@ -95,13 +94,5 @@ public class Companion extends CommonEntity{
 				+ ", languageSkillList=" + languageSkillList + "]";
 	}
 	
-	
-	public int getAge() {
-		Calendar cal = Calendar.getInstance();
-		int year = cal.get(Calendar.YEAR);
-		int birthYear = Integer.parseInt(ssn);
-		
-		return year - birthYear;
-	}
 	
 }

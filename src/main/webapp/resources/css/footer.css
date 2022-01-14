@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@import url(//http://www.google.com/fonts/earlyaccess);
+
+footer {
+	position: relative;
+	padding: 100px;
+	background-color: #0083B8;
+}

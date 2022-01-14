@@ -31,6 +31,7 @@ public class LanguageSkill extends CommonEntity{
 	@OneToOne
 	@JoinColumn(name="languageId")
 	private ForeignLanguage language;
+	
 	private double skillLevel;		//언어수준	(0 ~ 5사이의 값으로 .5단위) 숫자를 별표로 표시
 	
 	public LanguageSkill() {
