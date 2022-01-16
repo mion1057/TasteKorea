@@ -60,5 +60,6 @@
     <footer id="footer">
 	
     </footer>
+	<script src="<%=request.getContextPath()%> /resources/js/menu.js"></script>
 </body>
 </html>
