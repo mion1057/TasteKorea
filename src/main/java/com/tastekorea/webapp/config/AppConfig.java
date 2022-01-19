@@ -5,109 +5,138 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.tastekorea.webapp.common.service.FileUploader;
-import com.tastekorea.webapp.guide.dao.CompanionDao;
-import com.tastekorea.webapp.guide.dao.ForeignLanguageDao;
-import com.tastekorea.webapp.guide.dao.LanguageSkillDao;
-import com.tastekorea.webapp.guide.service.CompanionService;
-import com.tastekorea.webapp.guide.service.CompanionServiceImpl;
-import com.tastekorea.webapp.guide.service.ForeignLanguageService;
-import com.tastekorea.webapp.guide.service.ForeignLanguageServiceImpl;
-import com.tastekorea.webapp.guide.service.LanguageSkillServiceImpl;
-import com.tastekorea.webapp.guide.web.controller.AddCompanionController;
-import com.tastekorea.webapp.guide.web.controller.GetCompanionController;
-import com.tastekorea.webapp.guide.web.controller.LoginCompanionController;
+import com.tastekorea.webapp.common.service.UploadResourceManager;
+import com.tastekorea.webapp.common.web.controller.AppReplyController;
 import com.tastekorea.webapp.main.web.controller.MainIndexController;
-import com.tastekorea.webapp.user.dao.TravelerDao;
-import com.tastekorea.webapp.user.service.TravelerService;
-import com.tastekorea.webapp.user.service.TravelerServiceImpl;
-import com.tastekorea.webapp.user.web.controller.AddTravelerController;
-import com.tastekorea.webapp.user.web.controller.LoginTravelerController;
+import com.tastekorea.webapp.member.dao.ForeignLanguageDao;
+import com.tastekorea.webapp.member.dao.LanguageSkillDao;
+import com.tastekorea.webapp.member.dao.RegionDao;
+import com.tastekorea.webapp.member.dao.TasteMemberDao;
+import com.tastekorea.webapp.member.service.ForeignLanguageService;
+import com.tastekorea.webapp.member.service.ForeignLanguageServiceImpl;
+import com.tastekorea.webapp.member.service.LanguageSkillServiceImpl;
+import com.tastekorea.webapp.member.service.RegionService;
+import com.tastekorea.webapp.member.service.RegionServiceImpl;
+import com.tastekorea.webapp.member.service.TasteMemberService;
+import com.tastekorea.webapp.member.service.TasteMemberServiceImpl;
+import com.tastekorea.webapp.member.web.controller.AddMemberController;
+import com.tastekorea.webapp.member.web.controller.GetMemberController;
+import com.tastekorea.webapp.pin.dao.PinDao;
+import com.tastekorea.webapp.pin.service.PinService;
+import com.tastekorea.webapp.pin.service.PinServiceImpl;
+import com.tastekorea.webapp.pin.web.controller.AddPinController;
 
+
+/**
+ * 
+ * @author Sage R Lee
+ *
+ */
 @Configuration
-@ComponentScan(basePackages = "com.tastekorea.webapp")
+@ComponentScan(basePackages="com.tastekorea.webapp")
 public class AppConfig {
 
 	@Bean
-	public MainIndexController mainIndexController() {
+	public MainIndexController mainIndexController(){
 		return new MainIndexController();
 	}
-
+	
+	//---------------------------
+	//	 common module
+	//---------------------------
+	
 	@Bean
-	public FileUploader FileUploader() {
+	public AppReplyController appReplyController() {
+		return new AppReplyController();
+	}
+	
+	//---------------------------
+	//	 file upload module
+	//---------------------------
+	
+	@Bean
+	public FileUploader fileUploader() {
 		return new FileUploader();
 	}
+	
+	@Bean
+	public UploadResourceManager uploadResourceManager() {
+		return new UploadResourceManager();
+	}
+	
 
-	// ---------------------------
-	// guide packages
-	// ---------------------------
-
+	
+	//---------------------------
+	//		member module
+	//---------------------------
+	
+	@Bean
+	public RegionDao regionDao() {
+		return new RegionDao();
+	}
+	
+	@Bean
+	public RegionService regionServiceImpl() {
+		return new RegionServiceImpl();
+	}
+	
+	
 	@Bean
 	public ForeignLanguageDao foreignLanguageDao() {
 		return new ForeignLanguageDao();
 	}
-
+	
 	@Bean
-	public CompanionDao companionDao() {
-		return new CompanionDao();
+	public TasteMemberDao tasteMemberDao() {
+		return new TasteMemberDao();
 	}
-
+	
 	@Bean
 	public LanguageSkillDao languageSkillDao() {
 		return new LanguageSkillDao();
 	}
-
+	
 	@Bean
-	public ForeignLanguageService ForeignLanguageService() {
+	public ForeignLanguageService foreignLanguageServiceImpl() {
 		return new ForeignLanguageServiceImpl();
 	}
-
+	
 	@Bean
-	public CompanionService companionService() {
-		return new CompanionServiceImpl();
+	public TasteMemberService tasteMemberServiceImpl() {
+		return new TasteMemberServiceImpl();
 	}
-
+	
 	@Bean
 	public LanguageSkillServiceImpl languageSkillServiceImpl() {
 		return new LanguageSkillServiceImpl();
 	}
-
+	
 	@Bean
-	public AddCompanionController addCompanionController() {
-		return new AddCompanionController();
-	}
-
-	@Bean
-	public GetCompanionController getCompanionController() {
-		return new GetCompanionController();
+	public AddMemberController addMemberController() {
+		return new AddMemberController();
 	}
 	
 	@Bean
-	public LoginCompanionController loginCompanionController() {
-		return new LoginCompanionController();
-	}
-
-	// ---------------------------
-	// user packages
-	// ---------------------------
-	
-	@Bean
-	public TravelerDao travelerDao() {
-		return new TravelerDao();
+	public GetMemberController getMemberController() {
+		return new GetMemberController();
 	}
 	
+	//---------------------------
+	//		pin module
+	//---------------------------
 	@Bean
-	public TravelerService travelerService() {
-		return new TravelerServiceImpl();
+	public PinDao pinDao() {
+		return new PinDao();
 	}
 	
 	@Bean
-	public AddTravelerController addTravelerController() {
-		return new AddTravelerController();
+	public PinService pinServiceImpl() {
+		return new PinServiceImpl();
 	}
 	
 	@Bean
-	public LoginTravelerController loginTravelerController( ) {
-		return new LoginTravelerController();
+	public AddPinController addPinController() {
+		return new AddPinController();
 	}
-
+	
 }
