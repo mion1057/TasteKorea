@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	footer
+	<p>(주)tastKorea</p>
+	<p></p>
+	<p></p>
+	<p>Copyright&copy;TasteKorea service inc. All Rights Reserved</p>
 </body>
 </html>

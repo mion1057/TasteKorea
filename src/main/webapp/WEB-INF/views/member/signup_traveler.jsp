@@ -26,7 +26,7 @@
 		<!-- 중앙에 모아질 회원가입 틀 -->
 		<div id="container">
 			<form:form method="post" modelAttribute="memberCommand">
-				<form:input path="guide" style="display=none;" value="false" />
+				<form:input path="guide" style="display: none;" value="false" />
 				<div id="content_wrap">
 					<div id="content">
 						<!-- 이메일 & 패스워드 -->
@@ -47,14 +47,14 @@
 							<form:input path="lastName" autocomplete="off"
 								required="required" />
 							<h3>Sex</h3>
-							<form:select path="sex">
+							<form:select path="sex">	
 								<option value="m">male</option>
 								<option value="f">female</option>
 							</form:select>
 							<h3>Region</h3>
-							<form:select path="region">
+							<form:select path="region" required="required">
 								<option value="0">------</option>
-								<form:options items="${regionList}" />
+								<form:options items="${regionList}" itemLabel="eng" itemValue="regionId"/>
 							</form:select>
 							<button id="submit_btn">Submit</button>
 						</div>

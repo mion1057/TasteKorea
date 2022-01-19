@@ -1,6 +1,7 @@
 package com.tastekorea.webapp.common.vo;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -55,7 +56,7 @@ public class PageMaker<T> {
 		int pageStartNum = tempEndNum - (PAGE_NAVI_SIZE-1);
 		Pageable startPage = this.currentPage;
 
-		// 현재 페이지 번호로부터 출발지인 pageStartNum까지 Pageble객체를 리턴받는다.
+		// 현재 페이지 번호로부터 출발지인 pageStartNum까지 P객체를 Pageable리턴받는다.
 		// 루핑이 끝나면 startPage는 pageStartNum에 대한 Pageable로 커서가 된다.
 		// 이 루핑을 통해 [number: 0, size 20, sort: regDate: DESC]을 저장하게 된다.
 		for (int i = pageStartNum; i < this.currentPageNum; i++) {

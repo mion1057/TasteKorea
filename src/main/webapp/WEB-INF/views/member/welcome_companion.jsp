@@ -30,9 +30,10 @@
 					</h1>
 					<h2>Welcome</h2>
 					<div id="text_box">
-						<h2>${tasteMember.name }님환영합니다.</h2>
+						<h2>${tasteMember.fisrtName }<span>${tasteMember.lastName }</span> 님환영합니다.</h2>
 						<h2>여행객들의 길잡이가 되어주세요</h2>
-						<a href="/member/companion/login">로그인</a> <a href="/">홈으로</a>
+						<a href="/member/companion/login">로그인</a> 
+						<a href="/">홈으로</a>
 					</div>
 				</div>
 			</div>

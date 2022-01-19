@@ -15,29 +15,55 @@ li {
 
 @media only screen and (min-width : 1025px) {
 	/* index 메인화면 슬라이드 부분 */
-    section {
+       section {
         margin: 0 auto;
-        border-bottom: 1px solid #000;
+        width: 1400px; height: 310vh;
     }
-    #fist_main {
+    #container {
+        width: 100%; height: 310vh;
+        position: absolute; top: 17.5%; left:0;
+    }
+    #first_main {
         width: 100%;
         margin: 0 auto;
+        position: relative;
     }
-    #main_slider {
+    #slideshow-containerider {
         width: 100%; height: 80vh;
         margin: 0 auto;
-        background: url("../images/hello.png") no-repeat 350px / cover;
-        position: relative;
-
     }
-    /* #main_slider:after {
-        content: "";
-        width: 1920px; height: 80vh;
-        position: absolute; top: 0; left: 0;
-        background-color: #000;
-        opacity: 0.4;
-        z-index: -1;
-    } */
+    .mySlideDiv {
+        width: 100%; height: 80vh;
+        position: relative;
+    }
+    .fimg {
+        background: url("../images/slide/hello.png") no-repeat 240px / cover;
+    }
+    .simg {
+        background: url("../images/slide/hello2.png") no-repeat 700px / contain;
+    }
+    .timg {
+        background: url("../images/slide/hello3.png") no-repeat 630px / contain;
+    }
+    .yimg {
+        background: url("../images/slide/hello4.jpg") no-repeat 800px / contain;
+    }
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
     .search_bar {
         width: 40%;
         padding: 15px;
@@ -53,7 +79,7 @@ li {
         text-indent: 50px;
         border-radius: 10px;
         outline: none;
-        background: #fff url("../images/search.png") no-repeat 10px;
+        background: #fff url("../images/icon/search.png") no-repeat 10px;
     }
     .search_bar button {
         width: 15%; height: 40px;
@@ -78,12 +104,10 @@ li {
     /* main_second pinbox zone */
     #second_main {
         width: 100%; height: 80vh;
-        border-bottom: 1px solid #000;
     }
     .pinbox_wrap {
         width: 70%; height: 100%;
         margin: 0 auto;
-        
     }
     .pinbox_wrap > h2 {
         text-align: center;
@@ -92,9 +116,37 @@ li {
     }
     .pinbox {
         width: 30%; height: 60%;
-        border: 1px solid #000;
+        border: 1px solid rgb(158, 158, 158);
+        border-radius: 20px;
         float: left;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
     }
+
+    .pinbox_image {
+        width: 100%; height: 60%;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+    }
+    .pinbox_image img {
+        width: 100%; height: 100%;
+        border-radius: 20px 20px 0 0;
+        transform: scale(1);
+        transition: all 0.5s ease-in-out; 
+    }
+    .pinbox_image:hover img {
+        transform: scale(1.04);
+    }
+    .pinbox_text {
+        padding: 20px;
+    }
+    .text1 {
+        width: 100%; height: 60%;
+        margin-bottom: 30px;
+    }
+    .text2 {
+        width: 100%; height: 24px;
+    }
+
     .left {
         margin-right: 4.69%;
     }
@@ -105,13 +157,133 @@ li {
     
     /* third_main */
     #third_main {
-        width: 100%; height: 70vh;
+        clear: both;
+        width: 95%; height: 50vh;
+        padding: 30px;
     }
-/* ------------------------------------------------------------------ */
-    /* footer */
-    footer {
-        padding: 100px;
-        background-color: #1A2B49;
+    #region_content_wrap {
+        width: 100%; height: 50vh;
+        overflow: scroll;
+    }
+    #region_content_wrap::-webkit-scrollbar {
+        width: 0.1px;
+    }
+    #region_content_wrap::-webkit-scrollbar-thumb {
+        background-color: rgb(92, 92, 92, 0.5);
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 4px solid transparent;
+    }
+    #region_content_wrap::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    #region_content_wrap > h2 {
+        
+    }
+    .region_pin_wrap {
+        width: 250%; height: 40vh;
+        padding: 20px;
+    }
+    .region_pin_box {
+        width: 9%; height: 43vh;
+        border: 1px solid rgb(201, 201, 201);
+        border-radius: 20px;
+        margin-right: 1%;
+        float: left;
+        position: relative;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+    }
+    .region_pin_box img {
+        width: 100%; height: 100%;
+        position: absolute; top: 0; left: 0;
+        border-radius: 20px;
+        z-index: -999;
+        transform: scale(1);
+        transition: all 0.5s ease-in-out;
+    }
+    .region_pin_box:hover img{
+        transform: scale(1.05);
+    }
+    .region_pin_box a {
+        width: 100%; height: 100%;
+        display: block;
+        border-radius: 20px;
+        background-color: #000;
+        opacity: 0.2;
+        z-index: 99;
+    }
+    
+    .region_pin_box span {
+        position: absolute; top: 30px; left: 30px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 30px;
+        z-index: 9999;
+    }
+    .region_text {
+
+    }
+    .region_text h3 {
+
+    }
+    .view_more {
+        width: 9%; height: 43vh;
+        float: left;
+    }
+    .view_more > a {
+        display: block;
+        padding: 20px;
+        color: #000;
+        background: url("../images/icon/right_arrow.png") no-repeat right;
+        font-size: 30px;
+        margin-top: 130px;
+    }
+    .view_more > a:visited {
+        color: #000;
+    }
+    /* fourth_main */
+    #fourth_main{
+        width: 100%; height: 100vh;
+    }
+    .fourth_content {
+        width: 100%; height: 100vh;
+        position: relative;
+    }
+    .fourth_content a {
+        font-size: 30px;
+        padding: 20px;
+        border: 1px solid rgb(216, 216, 216);
+        border-radius: 100px;
+        font-weight: bold;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+        position: absolute; top: 80%; left: calc(50% - 88.78px);
+        z-index: 9999;
+    }
+    .fourth_content a:visited { 
+        color:#000;
+    }
+    .fourth_content a:hover {
+        background-color:#0071EB;
+        border:none;
+        color:#fff;
+        transition: 0.5s;
+    }
+    .fourth_background {
+        width: 100%; height: 100vh;
+        background: url('../images/slide/castle2.jpg') no-repeat center / cover;
+        position: relative;
+        background-attachment: fixed;
+        z-index: -999;
+        
+    }
+    .fourth_background:before {
+        content: "";
+        width: 100%; height: 100vh;
+        position: absolute; top: 0; left: 0;
+        background: url("../images/slide/meet_ur2.png") no-repeat center / cover;
+        z-index: -99999;
     }
 }
 
@@ -120,7 +292,7 @@ li {
     #main_slider {
         width: 100%; height: 80vh;
         margin: 0 auto;
-        background: url("../images/hello.png") no-repeat left;
+        background: url("../images/slide/hello.png") no-repeat left;
         position: relative;
         z-index: -99;
     }

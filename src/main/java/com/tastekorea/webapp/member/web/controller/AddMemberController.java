@@ -62,7 +62,7 @@ public class AddMemberController {
 		
 		String page = null;
 		if(type.equals("traveler")) {
-			page = "mmeber/signup_traveler";
+			page = "member/signup_traveler";
 			
 		}else {
 			mc.setGuide(true);
@@ -102,6 +102,7 @@ public class AddMemberController {
 		}
 		//3. TasteMember의 이미지 등록
 		log.debug("memberCommand.getProfileImage(): " + memberCommand.getProfileImage());
+		log.debug("이름" + memberCommand.getFirstName() + memberCommand.getLastName());
 		if(memberCommand.getProfileImage() != null) {
 			m.setProfileImage(fileUploader.fileUpload(memberCommand.getProfileImage()));
 		}

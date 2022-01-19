@@ -29,7 +29,7 @@ public class ImageFileResourceHandler{
 	private UploadResourceManager manager;
 	
 	@GetMapping("/resource/companion/profie/**/{fileName}")
-	public ResponseEntity<CacheFileResource> getCompanionProfileImage(@PathVariable 
+	public ResponseEntity<CacheFileResource> getCompanionProfileImage(@PathVariable  
 			String fileName, HttpServletRequest request) throws IOException {
 
 		CacheFileResource resource = createFileResource(

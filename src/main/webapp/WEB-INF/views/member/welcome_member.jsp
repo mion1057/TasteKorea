@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/header.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/welcome_companion.css'/>" />
+	href="<c:url value='/resources/css/welcome_member.css'/>" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/menu.js'/>"></script>
 
@@ -19,7 +19,7 @@
 	<header id="header">
 		<%@ include file="/WEB-INF/views/incl/header.jsp"%>
 	</header>
-	<section id="container">
+	<section>
 		<div id="container">
 			<div id="content_wrap">
 				<div id="content">
@@ -28,7 +28,7 @@
 					</h1>
 					<h2>Welcome</h2>
 					<div id="text_box">
-						<h2>${tasteMember.name }님환영합니다.</h2>
+						<h2>${tasteMember.fisrtName }<span>${tasteMember.lastName }</span>님환영합니다.</h2>
 						<h2>즐거운 여행 되세요!</h2>
 						<a href="/member/traveler/login">로그인</a> <a href="/">홈으로</a>
 					</div>

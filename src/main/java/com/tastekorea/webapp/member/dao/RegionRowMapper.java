@@ -15,7 +15,7 @@ public class RegionRowMapper implements RowMapper<Region> {
 		region.setId(rs.getLong("id"));
 		region.setKor(rs.getString("kor"));
 		region.setEng(rs.getString("eng"));
-		region.setGuide(rs.getBoolean(rowNum));
+		region.setGuide(rs.getBoolean("guide"));
 		
 		return region;
 	}
