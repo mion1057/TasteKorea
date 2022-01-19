@@ -22,6 +22,15 @@ import com.tastekorea.webapp.member.service.TasteMemberServiceImpl;
 import com.tastekorea.webapp.member.web.controller.AddMemberController;
 import com.tastekorea.webapp.member.web.controller.GetMemberController;
 import com.tastekorea.webapp.pin.dao.PinDao;
+import com.tastekorea.webapp.pin.dao.PinImageDao;
+import com.tastekorea.webapp.pin.dao.PinInterestDao;
+import com.tastekorea.webapp.pin.dao.PinMapDao;
+import com.tastekorea.webapp.pin.service.PinImageService;
+import com.tastekorea.webapp.pin.service.PinImageServiceImpl;
+import com.tastekorea.webapp.pin.service.PinInterestService;
+import com.tastekorea.webapp.pin.service.PinInterestServiceImpl;
+import com.tastekorea.webapp.pin.service.PinMapService;
+import com.tastekorea.webapp.pin.service.PinMapServiceImpl;
 import com.tastekorea.webapp.pin.service.PinService;
 import com.tastekorea.webapp.pin.service.PinServiceImpl;
 import com.tastekorea.webapp.pin.web.controller.AddPinController;
@@ -130,8 +139,38 @@ public class AppConfig {
 	}
 	
 	@Bean
+	public PinImageDao pinImageDao() {
+		return new PinImageDao();
+	}
+	
+	@Bean
+	public PinInterestDao pinInterestDao() {
+		return new PinInterestDao();
+	}
+	
+	@Bean
+	public PinMapDao pinMapDao() {
+		return new PinMapDao();
+	}
+	
+	@Bean
 	public PinService pinServiceImpl() {
 		return new PinServiceImpl();
+	}
+	
+	@Bean
+	public PinImageService pinImageService() {
+		return new PinImageServiceImpl();
+	}
+	
+	@Bean
+	public PinInterestService pinInterestService() {
+		return new PinInterestServiceImpl();
+	}
+	
+	@Bean
+	public PinMapService pinMapService() {
+		return new PinMapServiceImpl();
 	}
 	
 	@Bean

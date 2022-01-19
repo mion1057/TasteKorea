@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.tastekorea.webapp.member.domain.LanguageSkill;
 import com.tastekorea.webapp.member.domain.TasteMember;
 import com.tastekorea.webapp.pin.dao.PinDao;
 import com.tastekorea.webapp.pin.domain.Pin;
