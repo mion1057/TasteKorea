@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.tastekorea.webapp.auth.web.controller.LoginController;
 import com.tastekorea.webapp.common.service.FileUploader;
 import com.tastekorea.webapp.common.service.UploadResourceManager;
 import com.tastekorea.webapp.guide.dao.CompanionDao;
@@ -80,4 +81,21 @@ public class AppConfig {
 	public GetCompanionController getCompanionController() {
 		return new GetCompanionController();
 	}
+<<<<<<< Updated upstream
+=======
+	
+	@Bean
+	public AddPinController addPinController() {
+		return new AddPinController();
+	}
+	
+	//---------------------------
+	//		gallery module
+	//---------------------------
+	
+	@Bean
+	public LoginController loginController() {
+		return new LoginController();
+	}
+>>>>>>> Stashed changes
 }

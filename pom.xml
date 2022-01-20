@@ -239,9 +239,14 @@
 				</configuration>
 			</plugin>
 			<plugin>
+<<<<<<< Updated upstream
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.1</version>
+=======
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.2</version>
+>>>>>>> Stashed changes
 			</plugin>
 		</plugins>
 	</build>

@@ -44,8 +44,21 @@ public class GetCompanionController {
 		Pageable pageable = PageRequest.of(pageNum, Constants.FETCH_SIZE, 
 											Sort.Direction.DESC, "regDate");
 		
+<<<<<<< Updated upstream:src/main/java/com/tastekorea/webapp/guide/web/controller/GetCompanionController.java
 		Page<Companion> companionPage = companionService.getCompanionList(pageable);
 		model.addAttribute("pageMaker", new PageMaker<Companion>(companionPage));
+=======
+		Page<TasteMember> memberPage = null;
+		String nextPage = null;
+		if(type.equals("traveler")) {
+			memberPage = memberService.getTravelerList(pageable);
+			nextPage = "member/list_travelers";
+		}else {
+			memberPage = memberService.getCompanionList(pageable);
+			nextPage = "member/list_companions";
+		}
+		model.addAttribute("pageMaker", new PageMaker<TasteMember>(memberPage));
+>>>>>>> Stashed changes:src/main/java/com/tastekorea/webapp/member/web/controller/GetMemberController.java
 		
 		return "guide/companion/list_companions";
 	}

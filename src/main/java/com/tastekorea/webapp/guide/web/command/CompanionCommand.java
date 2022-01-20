@@ -5,8 +5,11 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+<<<<<<< Updated upstream:src/main/java/com/tastekorea/webapp/guide/web/command/CompanionCommand.java
 import com.tastekorea.webapp.guide.domain.Companion;
 
+=======
+>>>>>>> Stashed changes:src/main/java/com/tastekorea/webapp/member/web/command/MemberCommand.java
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,6 +37,7 @@ public class CompanionCommand {
 	//------------------------	
 	private List<LanguageSkillCommand> languageSkillCommandList; 
 	
+<<<<<<< Updated upstream:src/main/java/com/tastekorea/webapp/guide/web/command/CompanionCommand.java
 	//------------------------
 	//		제공가능한 서비스
 	//------------------------
@@ -42,6 +46,10 @@ public class CompanionCommand {
 	private String introduction;
 	
 	public CompanionCommand() {
+=======
+	   
+	public MemberCommand() {
+>>>>>>> Stashed changes:src/main/java/com/tastekorea/webapp/member/web/command/MemberCommand.java
 		if(languageSkillCommandList == null) {
 			languageSkillCommandList = new ArrayList<>(); 
 		}

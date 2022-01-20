@@ -18,7 +18,7 @@
 		<!-- 주메뉴 -->
 		<div id="gnb_zone">
 			<ul>
-				<li class="gnb_list"><a href="" class="gnb_btn">가이드리스트</a>
+				<li class="gnb_list"><a href="member/companion/list" class="gnb_btn">가이드리스트</a>
 				<li class="gnb_list"><a href="" class="gnb_btn">PIN</a></li>
 				<li class="gnb_list"><a href="" class="gnb_btn">고객센터</a></li>
 			</ul>
@@ -28,14 +28,14 @@
 			<ul class="sub_list_wrap">
 				<li class="sub_list"><span class="login_btn btn">Log in</span>
 					<ul class="child_wrap">
-						<li class="child_list before1"><a href="/guide/user/login">traveler</a></li>
-						<li class="child_list before2"><a href="/guide/companion/login">Companion</a></li>
+						<li class="child_list before1"><a href="login">traveler</a></li>
+						<li class="child_list before2"><a href="login">Companion</a></li>
 					</ul>
 				</li>
 				<li class="sub_list"><span class="sign_btn btn">Sign up</span>
 					<ul class="child_wrap">
-						<li class="child_list before1"><a href="/guide/user/add">traveler</a></li>
-						<li class="child_list before2"><a href="/guide/companion/add">Companion</a></li>
+						<li class="child_list before1"><a href="member/travelr/add">traveler</a></li>
+						<li class="child_list before2"><a href="member/companion/add">Companion</a></li>
 					</ul>
 				</li>
 			</ul>
