@@ -7,10 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
 import com.tastekorea.webapp.auth.web.command.User;
-=======
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 import com.tastekorea.webapp.member.dao.TasteMemberDao;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
 import com.tastekorea.webapp.member.domain.TasteMember;
@@ -102,7 +99,6 @@ public class TasteMemberServiceImpl implements TasteMemberService {
 	public Page<TasteMember> getTravelerList(Pageable pageable){
 		return memberDao.findAllTravelers(pageable);
 	}
-<<<<<<< HEAD
 
 	/**
 	 * 여행자 / 가이드 로그인 
@@ -111,6 +107,4 @@ public class TasteMemberServiceImpl implements TasteMemberService {
 	public User loginMember(String email) {
 		return memberDao.loginMember(email);
 	}
-=======
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 }

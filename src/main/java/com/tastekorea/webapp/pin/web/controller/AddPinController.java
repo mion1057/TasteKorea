@@ -2,7 +2,6 @@ package com.tastekorea.webapp.pin.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +10,6 @@ import com.tastekorea.webapp.common.service.FileUploader;
 import com.tastekorea.webapp.pin.domain.Pin;
 import com.tastekorea.webapp.pin.service.PinService;
 import com.tastekorea.webapp.pin.web.command.PinCommand;
-=======
-
-import com.tastekorea.webapp.pin.service.PinService;
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 
 @Controller
 public class AddPinController {
@@ -22,7 +17,6 @@ public class AddPinController {
 	@Autowired
 	private PinService pinService;
 	
-<<<<<<< HEAD
 	@Autowired
 	private FileUploader fileUploader;
 	
@@ -51,7 +45,4 @@ public class AddPinController {
 		return "pin/index";
 		
 	}
-=======
-	
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 }

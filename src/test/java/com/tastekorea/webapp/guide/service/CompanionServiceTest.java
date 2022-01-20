@@ -1,4 +1,4 @@
-package com.tastekorea.webapp.member.service;
+package com.tastekorea.webapp.guide.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import com.tastekorea.webapp.TasteTest;
-import com.tastekorea.webapp.member.domain.TasteMember;
+import com.tastekorea.webapp.guide.domain.Companion;
 
-public class TasteMemberServiceTest extends TasteTest{
+public class CompanionServiceTest extends TasteTest{
 	
 	@Autowired
-	private TasteMemberService memberService;
+	private CompanionService companionService;
 	
 	
 	@Test
@@ -23,7 +23,7 @@ public class TasteMemberServiceTest extends TasteTest{
 		int pageNum = 1;
 		Pageable pageable = PageRequest.of(pageNum, 3, 
 				Sort.Direction.DESC, "regDate");
-		Page<TasteMember> page = memberService.getMemberList(pageable);
+		Page<Companion> page = companionService.getCompanionList(pageable);
 		page.forEach(c -> System.out.println(c.getDetails()));
 		
 		end();

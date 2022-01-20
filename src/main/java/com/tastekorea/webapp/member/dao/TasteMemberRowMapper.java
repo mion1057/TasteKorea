@@ -36,11 +36,7 @@ public class TasteMemberRowMapper implements RowMapper<TasteMember> {
 		tasteMember.setRegDate(rs.getTimestamp("regDate"));
 		tasteMember.setUpdateDate(rs.getTimestamp("updateDate"));
 		tasteMember.setRegion(new Region(rs.getString("kor"), 
-<<<<<<< HEAD
 							rs.getString("eng"), rs.getBoolean("reg_guide")));
-=======
-							rs.getString("eng"), rs.getBoolean("r_guide")));
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 		return tasteMember;
 	}
 }

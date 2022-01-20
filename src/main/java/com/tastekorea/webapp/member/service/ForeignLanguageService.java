@@ -1,7 +1,8 @@
 package com.tastekorea.webapp.member.service;
 
 import java.util.List;
-import com.tastekorea.webapp.member.domain.ForeignLanguage;
+
+import com.tastekorea.webapp.guide.domain.ForeignLanguage;
 
 public interface ForeignLanguageService {
 	

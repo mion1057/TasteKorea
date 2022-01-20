@@ -18,11 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * 
- * @author Sage R Lee
- *
- */
+
 @MappedSuperclass
 @Getter
 @Setter

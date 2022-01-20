@@ -62,11 +62,7 @@ public class AddMemberController {
 		
 		String page = null;
 		if(type.equals("traveler")) {
-<<<<<<< HEAD
 			page = "member/signup_traveler";
-=======
-			page = "mmeber/signup_traveler";
->>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 			
 		}else {
 			mc.setGuide(true);
