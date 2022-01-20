@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.member.service.TasteMemberService;
-import com.tastekorea.webapp.member.web.command.MemberCommand;
+
 
 @Controller
 public class LoginController {
@@ -20,8 +19,7 @@ public class LoginController {
 	private TasteMemberService memberService;
 
 	@GetMapping("/login")
-	public String login( MemberCommand command, Model model) {
-		
+	public String login(MemberCommand command, Model model) {
 		return "/login/login_traveler";
 		
 	}

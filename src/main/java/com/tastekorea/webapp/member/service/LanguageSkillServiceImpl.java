@@ -1,4 +1,4 @@
-package com.tastekorea.webapp.guide.service;
+package com.tastekorea.webapp.member.service;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.tastekorea.webapp.guide.dao.LanguageSkillDao;
 import com.tastekorea.webapp.guide.domain.Companion;
-import com.tastekorea.webapp.guide.domain.LanguageSkill;
+import com.tastekorea.webapp.member.domain.LanguageSkill;
 
 
 @Service

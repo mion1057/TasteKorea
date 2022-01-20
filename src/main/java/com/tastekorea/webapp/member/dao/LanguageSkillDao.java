@@ -1,4 +1,4 @@
-package com.tastekorea.webapp.guide.dao;
+package com.tastekorea.webapp.member.dao;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.tastekorea.webapp.guide.domain.Companion;
-import com.tastekorea.webapp.guide.domain.LanguageSkill;
+import com.tastekorea.webapp.member.domain.LanguageSkill;
+
 
 
 @Repository

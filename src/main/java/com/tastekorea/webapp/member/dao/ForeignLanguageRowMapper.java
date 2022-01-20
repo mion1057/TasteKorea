@@ -1,4 +1,4 @@
-package com.tastekorea.webapp.guide.dao;
+package com.tastekorea.webapp.member.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

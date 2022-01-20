@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.common.dao.TasteDao;
+import com.tastekorea.webapp.guide.dao.UserRowMapper;
 import com.tastekorea.webapp.member.domain.TasteMember;
 
 

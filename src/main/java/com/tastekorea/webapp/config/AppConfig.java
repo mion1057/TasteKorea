@@ -18,6 +18,7 @@ import com.tastekorea.webapp.guide.service.LanguageSkillServiceImpl;
 import com.tastekorea.webapp.guide.web.controller.AddCompanionController;
 import com.tastekorea.webapp.guide.web.controller.GetCompanionController;
 import com.tastekorea.webapp.main.web.controller.MainIndexController;
+import com.tastekorea.webapp.pin.web.controller.AddPinController;
 
 @Configuration
 @ComponentScan(basePackages="com.tastekorea.webapp")
@@ -81,9 +82,7 @@ public class AppConfig {
 	public GetCompanionController getCompanionController() {
 		return new GetCompanionController();
 	}
-<<<<<<< Updated upstream
-=======
-	
+
 	@Bean
 	public AddPinController addPinController() {
 		return new AddPinController();
@@ -97,5 +96,5 @@ public class AppConfig {
 	public LoginController loginController() {
 		return new LoginController();
 	}
->>>>>>> Stashed changes
+
 }

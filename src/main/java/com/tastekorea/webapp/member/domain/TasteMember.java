@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.tastekorea.webapp.common.domain.CommonEntity;
+import com.tastekorea.webapp.guide.domain.LanguageSkill;
+import com.tastekorea.webapp.guide.web.command.Region;
 
 import lombok.Getter;
 import lombok.Setter;

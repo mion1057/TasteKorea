@@ -1,4 +1,4 @@
-package com.tastekorea.webapp.guide.service;
+package com.tastekorea.webapp.member.service;
 
 import java.util.List;
 

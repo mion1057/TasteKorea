@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.tastekorea.webapp.auth.web.command.User;
-import com.tastekorea.webapp.member.domain.Region;
+import com.tastekorea.webapp.guide.web.command.Region;
 
 public class UserRowMapper implements RowMapper<User> {
 
