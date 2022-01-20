@@ -3,7 +3,10 @@ package com.tastekorea.webapp.member.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+<<<<<<< HEAD
 import com.tastekorea.webapp.auth.web.command.User;
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 import com.tastekorea.webapp.member.domain.TasteMember;
 
 public interface TasteMemberService {
@@ -46,10 +49,13 @@ public interface TasteMemberService {
 	 * @return
 	 */
 	Page<TasteMember> getTravelerList(Pageable pageable);
+<<<<<<< HEAD
 	
 	/**
 	 * 회원 / 가이드 로그인 
 	 */
 	User loginMember(String email);
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 
 }

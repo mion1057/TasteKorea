@@ -26,6 +26,9 @@ public class Pin extends CommonEntity{
 	private String description;			//설명 (영어)
 	private int like;
 	private int dislike;
+<<<<<<< HEAD
 	private int readCount;
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 	
 }

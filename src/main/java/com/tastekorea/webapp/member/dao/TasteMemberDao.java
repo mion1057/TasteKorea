@@ -11,9 +11,13 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.common.dao.TasteDao;
 import com.tastekorea.webapp.guide.dao.UserRowMapper;
+=======
+import com.tastekorea.webapp.common.dao.TasteDao;
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 import com.tastekorea.webapp.member.domain.TasteMember;
 
 
@@ -28,8 +32,13 @@ public class TasteMemberDao extends TasteDao {
 	
 	private static final String SELECT = 
 			"SELECT m.id, m.email, m.passwd, m.guide, m.firstName, m.lastName, "
+<<<<<<< HEAD
 			+ " m.phone, m.sex, m.ssn, m.guide, m.profileImage, m.introduction, "
 			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS reg_guide "
+=======
+			+ " m.phone, m.sex, m.ssn, m.profileImage, m.introduction, "
+			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS r_guide "
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 			+ " FROM TasteMember m INNER JOIN Region r ON m.regionId = r.id ";
 	
 	/**
@@ -110,7 +119,11 @@ public class TasteMemberDao extends TasteDao {
 	 * @return
 	 */
 	public Page<TasteMember> findAllCompanions(Pageable pageable) {
+<<<<<<< HEAD
 		String sql = pagingQuery(SELECT + " WHERE m.guide = false", pageable);
+=======
+		String sql = pagingQuery(SELECT + " WHERE guide = false", pageable);
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 		List<TasteMember> list = jdbcTemplate.query(sql, new TasteMemberRowMapper());
 
 		return new PageImpl<TasteMember>(list, pageable, count("TasteMember"));
@@ -128,6 +141,7 @@ public class TasteMemberDao extends TasteDao {
 
 		return new PageImpl<TasteMember>(list, pageable, count("TasteMember"));
 	}
+<<<<<<< HEAD
 	/**
 	 * 회원 로그인
 	 * @param email
@@ -138,5 +152,7 @@ public class TasteMemberDao extends TasteDao {
 		
 		return jdbcTemplate.queryForObject(sql, new UserRowMapper() , email);
 	}
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 	
 }

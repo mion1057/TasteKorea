@@ -1,5 +1,6 @@
 package com.tastekorea.webapp.pin.dao;
 
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -33,4 +34,11 @@ public class PinDao extends TasteDao {
 		
 		return keyHolder.getKey().longValue();
 	}
+=======
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PinDao {
+
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 }

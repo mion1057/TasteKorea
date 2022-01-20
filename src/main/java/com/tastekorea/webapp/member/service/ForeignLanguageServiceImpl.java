@@ -5,11 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tastekorea.webapp.guide.dao.ForeignLanguageDao;
-import com.tastekorea.webapp.guide.domain.ForeignLanguage;
+import com.tastekorea.webapp.member.dao.ForeignLanguageDao;
+import com.tastekorea.webapp.member.domain.ForeignLanguage;
 
 
 
+/**
+ * 
+ * @author Sage R Lee
+ *
+ */
 @Service
 public class ForeignLanguageServiceImpl implements ForeignLanguageService{
 	

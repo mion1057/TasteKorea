@@ -10,12 +10,18 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.tastekorea.webapp.common.domain.CommonEntity;
+<<<<<<< HEAD
 import com.tastekorea.webapp.guide.domain.LanguageSkill;
 import com.tastekorea.webapp.guide.web.command.Region;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+=======
+
+import lombok.Getter;
+import lombok.Setter;
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 
 
 /**
@@ -27,7 +33,10 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
+<<<<<<< HEAD
 @ToString
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 public class TasteMember extends CommonEntity{
 	
 	private Region region;			//지역(가이드), 국적(여행자)
@@ -130,6 +139,7 @@ public class TasteMember extends CommonEntity{
 		return year - birthYear;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * 등록된 회원 여부 확인
 	 * @param email
@@ -153,4 +163,6 @@ public class TasteMember extends CommonEntity{
 		}
 		return false;
 	}
+=======
+>>>>>>> ef9369a398f2db785d7e7d7c8bd396aaa2cfba39
 }
