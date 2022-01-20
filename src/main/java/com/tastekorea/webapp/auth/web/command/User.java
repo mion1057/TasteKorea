@@ -26,4 +26,13 @@ public class User extends CommonEntity {
 	private String ssn;
 	private String profileImage;
 	private String introduction;
+	
+	public String getDetail() {
+		return "TasteMember [email=" + email + ", name=" + firstName + 
+				lastName + ", region" + region +", phone=" + phone + 
+				", ssn=" + ssn + ", sex=" + sex + 
+				", profileImage=" + profileImage //+ ", provision=" + provision 
+				+ ", introduction=" + introduction + "]";
+	}
+	
 }

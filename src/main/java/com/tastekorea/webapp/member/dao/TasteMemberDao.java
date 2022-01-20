@@ -3,6 +3,7 @@ package com.tastekorea.webapp.member.dao;
 import java.sql.PreparedStatement;
 import java.util.List;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -11,9 +12,9 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.common.dao.TasteDao;
-import com.tastekorea.webapp.guide.dao.UserRowMapper;
 import com.tastekorea.webapp.member.domain.TasteMember;
 
 
@@ -29,7 +30,7 @@ public class TasteMemberDao extends TasteDao {
 	private static final String SELECT = 
 			"SELECT m.id, m.email, m.passwd, m.guide, m.firstName, m.lastName, "
 			+ " m.phone, m.sex, m.ssn, m.guide, m.profileImage, m.introduction, "
-			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS reg_guide "
+			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS r_guide "
 			+ " FROM TasteMember m INNER JOIN Region r ON m.regionId = r.id ";
 	
 	/**
@@ -130,13 +131,17 @@ public class TasteMemberDao extends TasteDao {
 	}
 	/**
 	 * 회원 로그인
-	 * @param email
+	 * @param id
 	 * @return
+	 * @throws LoginFailException 
 	 */
-	public User loginMember(String email) {
-		String sql = SELECT + " WHERE email = ?";
-		
-		return jdbcTemplate.queryForObject(sql, new UserRowMapper() , email);
+	public User loginMember(String email, String passwd) throws LoginFailException {
+		String sql = SELECT + " WHERE email = ? AND passwd = ?";
+		try {
+		return jdbcTemplate.queryForObject(sql, new UserRowMapper() , email, passwd);
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 	
 }

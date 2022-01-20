@@ -3,6 +3,7 @@ package com.tastekorea.webapp.member.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.member.domain.TasteMember;
 
@@ -49,7 +50,8 @@ public interface TasteMemberService {
 	
 	/**
 	 * 회원 / 가이드 로그인 
+	 * @throws LoginFailException 
 	 */
-	User loginMember(String email);
+	User loginMember(String email, String passwd) throws LoginFailException;
 
 }

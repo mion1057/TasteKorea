@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.member.domain.Region;
 import com.tastekorea.webapp.member.domain.TasteMember;
 
@@ -36,7 +37,7 @@ public class TasteMemberRowMapper implements RowMapper<TasteMember> {
 		tasteMember.setRegDate(rs.getTimestamp("regDate"));
 		tasteMember.setUpdateDate(rs.getTimestamp("updateDate"));
 		tasteMember.setRegion(new Region(rs.getString("kor"), 
-							rs.getString("eng"), rs.getBoolean("reg_guide")));
+							rs.getString("eng"), rs.getBoolean("r_guide")));
 		return tasteMember;
 	}
 }

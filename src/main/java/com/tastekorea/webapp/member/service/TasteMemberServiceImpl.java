@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.member.dao.TasteMemberDao;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
@@ -102,9 +103,10 @@ public class TasteMemberServiceImpl implements TasteMemberService {
 
 	/**
 	 * 여행자 / 가이드 로그인 
+	 * @throws LoginFailException 
 	 */
 	@Override
-	public User loginMember(String email) {
-		return memberDao.loginMember(email);
+	public User loginMember(String email, String passwd) throws LoginFailException {
+		return memberDao.loginMember(email, passwd);
 	}
 }

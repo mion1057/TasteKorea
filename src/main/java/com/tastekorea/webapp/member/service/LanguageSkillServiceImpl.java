@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tastekorea.webapp.guide.dao.LanguageSkillDao;
-import com.tastekorea.webapp.guide.domain.Companion;
+import com.tastekorea.webapp.member.dao.LanguageSkillDao;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
+import com.tastekorea.webapp.member.domain.TasteMember;
 
 
 @Service
@@ -24,8 +24,12 @@ public class LanguageSkillServiceImpl implements LanguageSkillService{
 
 
 	@Override
-	public List<LanguageSkill> getLanguageSkillListByCompanion(Companion companion) {
-		return languageSkillDao.findByCompanion(companion);
+	public List<LanguageSkill> getLanguageSkillListByMember(TasteMember tasteMember) {
+		// TODO Auto-generated method stub
+		return languageSkillDao.findByMember(tasteMember);
 	}
+
+
+
 	
 }

@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.member.service.TasteMemberService;
+import com.tastekorea.webapp.member.web.command.MemberCommand;
 
 
 @Controller
@@ -18,27 +20,30 @@ public class LoginController {
 	@Autowired
 	private TasteMemberService memberService;
 
-	@GetMapping("/login")
+	@GetMapping("/member/login")
 	public String login(MemberCommand command, Model model) {
 		return "/login/login_traveler";
 		
 	}
 
-	@PostMapping("/login")
-	public String login(MemberCommand memberCommand, Model model, HttpSession session) {
-	
-		User user = memberService.loginMember(memberCommand.getEmail());
+	@PostMapping("/member/login")
+	public String login(MemberCommand memberCommand, Model model, HttpSession session) throws LoginFailException {
 		
-		if(user.equals(null)) {
-			session.setAttribute("user", null);
-			model.addAttribute(user);
+		User user = memberService.loginMember(memberCommand.getEmail(), memberCommand.getPasswd());
+		
+		if(user == null) {
+			System.out.println("로그인 오류: 유저 정보를 다시 확인해 주세요.");
+			return "redirect:/member/login";
 		}
+		
+		System.out.println(user.getDetail());
 		
 		session.setAttribute("user", user);
 		
-		System.out.println(user.toString());
-
+		model.addAttribute("user", user);
+		
 		return "redirect:/";
+		
 	}
 
 	@PostMapping("/member/{type}/logout")

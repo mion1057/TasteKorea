@@ -2,19 +2,24 @@ package com.tastekorea.webapp.member.service;
 
 import java.util.List;
 
-import com.tastekorea.webapp.guide.domain.Companion;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
+import com.tastekorea.webapp.member.domain.TasteMember;
+
+
 
 public interface LanguageSkillService {
 
-	void addLanguageSkill(LanguageSkill ls);
-
 	/**
 	 * 
-	 * @param companion : companionId required
+	 * @param ls
+	 */
+	void addLanguageSkill(LanguageSkill ls);
+
+	
+	/**
 	 * 
+	 * @param tasteMember
 	 * @return
 	 */
-	List<LanguageSkill> getLanguageSkillListByCompanion(Companion companion);
-
+	List<LanguageSkill> getLanguageSkillListByMember(TasteMember tasteMember);
 }

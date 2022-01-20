@@ -10,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.tastekorea.webapp.common.domain.CommonEntity;
-import com.tastekorea.webapp.guide.domain.LanguageSkill;
-import com.tastekorea.webapp.guide.web.command.Region;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -115,6 +113,7 @@ public class TasteMember extends CommonEntity{
 				+ ", sex=" + sex + ", profileImage=" + profileImage //+ ", provision=" + provision 
 				+ ", introduction=" + introduction 
 				+ ", languageSkillList=" + languageSkillList + "]";
+		
 	}
 	
 	
@@ -128,29 +127,5 @@ public class TasteMember extends CommonEntity{
 		int birthYear = Integer.parseInt(ssn);
 		
 		return year - birthYear;
-	}
-
-	/**
-	 * 등록된 회원 여부 확인
-	 * @param email
-	 * @return
-	 */
-	public boolean isEmail(String email) {
-		if(this.email.equals(email)) {
-			return true;
-		}
-		return false;
-	}
-	
-	/**
-	 * 등록된 회원 여부 확인 
-	 * @param passwd
-	 * @return
-	 */
-	public boolean isPasswd(String passwd) {
-		if(this.passwd.equals(passwd)) {
-			return true;
-		}
-		return false;
 	}
 }

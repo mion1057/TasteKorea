@@ -6,7 +6,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.tastekorea.webapp.common.domain.CommonEntity;
-import com.tastekorea.webapp.guide.domain.ForeignLanguage;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
