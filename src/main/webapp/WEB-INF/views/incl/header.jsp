@@ -23,17 +23,35 @@
 			</ul>
 		</div>
 		<!-- 로그인 & 회원가입 -->
-		<div id="snb_zone">
-			<ul class="sub_list_wrap">
-				<li class="sub_list"><span class="login_btn btn"><a href="/member/login">Log in</a></span></li>
-				<li class="sub_list"><span class="sign_btn btn">Sign up</span>
-					<ul class="child_wrap">
-						<li class="child_list before1"><a href="/member/traveler/add">traveler</a></li>
-						<li class="child_list before2"><a href="/member/companion/add">Companion</a></li>
+		<c:choose>
+			<c:when test="${empty user}">
+				<div id="snb_zone">
+					<ul class="sub_list_wrap">
+						<li class="sub_list"><span class="login_btn btn"><a href="/member/login">Log in</a></span></li>
+						<li class="sub_list"><span class="sign_btn btn">Sign up</span>
+							<ul class="child_wrap">
+								<li class="child_list before1"><a href="/member/traveler/add">traveler</a></li>
+								<li class="child_list before2"><a href="/member/companion/add">Companion</a></li>
+							</ul>
+						</li>
 					</ul>
-				</li>
-			</ul>
-		</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div id="snb_zone">
+                <ul class="sub_list_wrap">
+                    <li class="sub_list membername">
+                        <a href="#"><span>${user.firstName}</span><span>${user.lastName}님</span></a>
+                        <ul class="child_wrap">
+                            <li class="child_list after1"><a href="">내 정보</a></li>
+                            <!-- <li class="child_list after2"><a href="">내 게시글</a></li> -->
+                            <li class="child_list after3"><a href="/member/logout">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </body>
 </html>

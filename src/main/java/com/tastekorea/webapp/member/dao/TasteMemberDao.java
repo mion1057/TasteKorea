@@ -144,4 +144,16 @@ public class TasteMemberDao extends TasteDao {
 		}
 	}
 	
+	public void UpdateTravelerInfo(TasteMember member, String email) {
+		String sql = "UPDATE TasteMember SET passwd = ?, regionId = ? WHERE email = ?";
+	
+		jdbcTemplate.update(sql, member.getPasswd(), member.getRegion().getId(), member.getEmail());
+		
+	}
+	public void UpdateCompanionInfo(TasteMember member, String email) {
+		String sql = "UPDATE TasteMember a, LanguageSkill b, foreignLanguage c"
+				+ "ON a.id = b.memberId"
+				+ "SET a.passwd = ?, a.regionId = ?, c.";
+	}
+	
 }

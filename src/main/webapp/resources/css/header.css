@@ -89,6 +89,7 @@
 		float: right;
 		position: relative;
 	}
+
 	.sub_list {
 		float: left;
 		width: 40%;
@@ -164,6 +165,9 @@
 	}
 	.before2 {
 		text-indent: 30px;
+	}
+	.membername {
+		width: 80%;
 	}
 }
 

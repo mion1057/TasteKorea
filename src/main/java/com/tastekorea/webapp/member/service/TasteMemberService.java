@@ -53,5 +53,9 @@ public interface TasteMemberService {
 	 * @throws LoginFailException 
 	 */
 	User loginMember(String email, String passwd) throws LoginFailException;
+	
+	void UpdateMemberInfo(TasteMember member, String email);
+	
+	void UpdateCompanionInfo(TasteMember member, String email);
 
 }

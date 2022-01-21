@@ -22,7 +22,7 @@ public class LoginController {
 
 	@GetMapping("/member/login")
 	public String login(MemberCommand command, Model model) {
-		return "/login/login_traveler";
+		return "/auth/login_member";
 		
 	}
 
@@ -46,14 +46,11 @@ public class LoginController {
 		
 	}
 
-	@PostMapping("/member/{type}/logout")
+	@GetMapping("/member/logout")
 	public String logout(HttpSession session) {
-		Object obj = session.getAttribute("member");
 		
-		if(!obj.equals(null)) {
-		session.removeAttribute("member");
 		session.invalidate();
-		}
+		
 		return "redirect:/";
 	}
 }

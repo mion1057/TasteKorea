@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.tastekorea.webapp.auth.web.controller.MyPageController;
 import com.tastekorea.webapp.common.service.FileUploader;
 import com.tastekorea.webapp.common.service.UploadResourceManager;
 import com.tastekorea.webapp.common.web.controller.AppReplyController;
@@ -117,6 +118,11 @@ public class AppConfig {
 	@Bean
 	public GetMemberController getMemberController() {
 		return new GetMemberController();
+	}
+	
+	@Bean
+	public MyPageController myPageController() {
+		return new MyPageController();
 	}
 	
 	//---------------------------

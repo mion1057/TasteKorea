@@ -109,4 +109,16 @@ public class TasteMemberServiceImpl implements TasteMemberService {
 	public User loginMember(String email, String passwd) throws LoginFailException {
 		return memberDao.loginMember(email, passwd);
 	}
+
+	
+	@Override
+	public void UpdateMemberInfo(TasteMember member, String email) {
+		memberDao.UpdateTravelerInfo(member, email);
+	}
+
+
+	@Override
+	public void UpdateCompanionInfo(TasteMember member, String email) {
+		memberDao.UpdateCompanionInfo(member, email);
+	}
 }
