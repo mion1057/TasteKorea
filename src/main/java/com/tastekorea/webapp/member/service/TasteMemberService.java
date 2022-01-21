@@ -3,8 +3,8 @@ package com.tastekorea.webapp.member.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
+import com.tastekorea.webapp.auth.web.exception.LoginFailException;
 import com.tastekorea.webapp.member.domain.TasteMember;
 
 public interface TasteMemberService {

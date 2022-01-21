@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.tastekorea.webapp.auth.web.LoginFailException;
+import com.tastekorea.webapp.auth.web.exception.LoginFailException;
 import com.tastekorea.webapp.member.domain.Region;
 import com.tastekorea.webapp.member.domain.TasteMember;
 

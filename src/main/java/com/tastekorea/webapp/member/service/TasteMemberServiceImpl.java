@@ -7,8 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
+import com.tastekorea.webapp.auth.web.exception.LoginFailException;
 import com.tastekorea.webapp.member.dao.TasteMemberDao;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
 import com.tastekorea.webapp.member.domain.TasteMember;

@@ -12,8 +12,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.tastekorea.webapp.auth.web.LoginFailException;
 import com.tastekorea.webapp.auth.web.command.User;
+import com.tastekorea.webapp.auth.web.exception.LoginFailException;
 import com.tastekorea.webapp.common.dao.TasteDao;
 import com.tastekorea.webapp.member.domain.TasteMember;
 

@@ -111,7 +111,7 @@ input:focus {outline: none;}
 .remove_email, .remove_passwd {
     background: url('../images/icon/delete.png') no-repeat 16px;
 }
-.btn {
+.rbtn {
     position: absolute; top: 25%; right: 0;
     border: none;
     background-color: none;

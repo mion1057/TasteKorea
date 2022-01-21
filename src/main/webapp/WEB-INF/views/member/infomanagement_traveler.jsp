@@ -21,44 +21,34 @@
 		<%@ include file="/WEB-INF/views/incl/header.jsp"%>
 	</header>
 	<section>
-		<div id="container">
-			<div id="content">
-				<h2>Member Info</h2>
-				<form:form modelAttribute="memberCommand" method="post">
-				<form:input path="guide" style="display: none;" value="false"/>
-				<form:input path="sex" style="display: none;"/>
-					<div class="profile_info">
-						<h2>프로필 정보</h2>
-						<div class="profile">
-							<div class="profile_first">
-								<h3>이름</h3>
-								<form:input path="firstName" value="${tasteMember.firstName }"readonly />
-								<br>
-								<h3>성</h3>
-								<form:input path="lastName" value="${tasteMember.lastName }"readonly />
-							</div>
-							<div class="profile_second">
-								<h2>이메일</h2>
-								<form:input path="email" value="${tasteMember.email }" readonly />
-								<h2>비밀번호 변경</h2>
-								<form:password path="passwd" minlength="8" maxlength="14"
-									required="required" />
-							</div>
-							<div class="profile_third">
-								<h2>지역</h2>
-								<form:select path="region" required="required">
-									<option value="0">------</option>
-									<form:options items="${regionList}" itemLabel="region"
-										itemValue="regionId" />
-								</form:select>
-								<button>수정</button>
-							</div>
-						</div>
-					</div>
-				</form:form>
-			</div>
-		</div>
-	</section>
+        <div id="container">
+            <div id="content">
+                <h2>Membership information</h2>                
+                    <div class="profile_info">
+                        <!-- 가이드가 등록한 본인 사진이 들어갈 공간 -->
+                        <div class="profile">
+                        <form:form modelAttribute="" method="get">
+                            <div class="profile_first">
+                                <h3>First name</h3>
+                                <form:input path="firstName" value="${tasteMember.firstName }" readonly/>
+                                <h3>Last name</h3>
+                                <form:input path="lastName" value="${tasteMember.lastName }" readonly/>
+                            </div>
+                            <div class="profile_second">
+                                <h2>Email</h2>
+                                <form:input path="email" value="${tasteMember.email }" readonly/>
+                                <h2>Region</h2>
+                                <form:input path="region" value="${tasteMember.region }" readonly/>
+                            </div>
+                        </form:form>
+                            <div class="profile_third">
+                                <a href="" >취소</a>
+                            </div>
+                        </div>
+                    </div>           
+            </div>
+        </div>
+    </section>
 	<footer>
 		<%@ include file="/WEB-INF/views/incl/footer.jsp"%>
 	</footer>

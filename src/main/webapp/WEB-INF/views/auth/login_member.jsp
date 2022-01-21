@@ -39,6 +39,7 @@
 						</div>
 						<button class="loginbtn">Log in</button>
 					</form:form>
+					<p>${err}</p>
 					<a href="/member/choose_join" class="sign_up_btn">Sign up</a>
 				</div>
 			</div>
