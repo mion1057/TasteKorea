@@ -7,6 +7,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * 
+ * @author Sage R Lee
+ *
+ */
 @Slf4j
 public class TasteDao {
 
@@ -32,6 +38,7 @@ public class TasteDao {
 	protected String pagingQuery(String select, Pageable pageable) {
 
 		StringBuilder sql = new StringBuilder(select);
+		log.debug("pre sql : " + sql.toString());
 
 		Order order = !pageable.getSort().isEmpty() ? 
 						pageable.getSort().toList().get(0) : Order.by("id");
@@ -44,7 +51,7 @@ public class TasteDao {
 		sql.append(" OFFSET ");
 		sql.append(pageable.getOffset());
 
-		log.debug("sql : " + sql);
+		log.debug("sql : " + sql.toString());
 		
 		return sql.toString();
 	}

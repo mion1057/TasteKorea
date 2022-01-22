@@ -58,6 +58,7 @@ public class TasteMember extends CommonEntity{
 	//------------------------
 	//		기타 정보
 	//------------------------
+	private String alias;			//별명
 	private String profileImage;	//프로필 사진		(가이드 필수)
 	private String introduction;	//자기 소개 및 PR	(가이드 필수)
 	
@@ -68,6 +69,19 @@ public class TasteMember extends CommonEntity{
 	
 	public TasteMember(long id) {
 		super.id = id;
+	}
+	
+	/**
+	 * for displaying community activity
+	 * 
+	 * @param id
+	 * @param alias
+	 * @param profileImage
+	 */
+	public TasteMember(long id, String alias, String profileImage) {
+		super.id = id;
+		this.alias = alias;
+		this.profileImage = profileImage;
 	}
 	
 	
@@ -101,8 +115,25 @@ public class TasteMember extends CommonEntity{
 		return name;
 	}
 	
+	
 	/**
-	 * 
+	 * 별명 리턴, 주어진 별명이 없을 경우 한국인은 이름, 외국인은 성을 리턴
+	 * @return
+	 */
+	public String getAlias() {
+		if(alias == null) {
+			if(guide) {
+				return firstName;
+			}else {
+				return lastName;
+			}
+		}
+		return alias;
+	}
+	
+	
+	/**
+	 * 회원 상세 정보
 	 * @return
 	 */
 	public String getDetails() {
@@ -115,7 +146,7 @@ public class TasteMember extends CommonEntity{
 	
 	
 	/**
-	 * 
+	 * 생년정보를 토대로 나이 정보 리턴
 	 * @return
 	 */
 	public int getAge() {

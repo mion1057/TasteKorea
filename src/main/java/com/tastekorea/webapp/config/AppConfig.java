@@ -4,6 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.tastekorea.webapp.board.dao.ArticleDao;
+import com.tastekorea.webapp.board.service.ArticleService;
+import com.tastekorea.webapp.board.service.ArticleServiceImpl;
+import com.tastekorea.webapp.board.web.controller.AddArticleController;
+import com.tastekorea.webapp.board.web.controller.ListArticleController;
+import com.tastekorea.webapp.common.dao.AppHitDao;
+import com.tastekorea.webapp.common.dao.AppReplyDao;
+import com.tastekorea.webapp.common.service.AppReplyManager;
 import com.tastekorea.webapp.common.service.FileUploader;
 import com.tastekorea.webapp.common.service.UploadResourceManager;
 import com.tastekorea.webapp.common.web.controller.AppReplyController;
@@ -34,20 +42,36 @@ import com.tastekorea.webapp.pin.web.controller.AddPinController;
 @Configuration
 @ComponentScan(basePackages="com.tastekorea.webapp")
 public class AppConfig {
-
-	@Bean
-	public MainIndexController mainIndexController(){
-		return new MainIndexController();
-	}
 	
 	//---------------------------
 	//	 common module
 	//---------------------------
 	
 	@Bean
+	public AppReplyDao appReplyDao() {
+		return new AppReplyDao();
+	}
+	
+	@Bean
+	public AppReplyManager appReplyManager() {
+		return new AppReplyManager();
+	}
+	
+	@Bean
 	public AppReplyController appReplyController() {
 		return new AppReplyController();
 	}
+	
+	@Bean
+	public AppHitDao appHitDao() {
+		return new AppHitDao();
+	}
+
+	@Bean
+	public MainIndexController mainIndexController(){
+		return new MainIndexController();
+	}
+
 	
 	//---------------------------
 	//	 file upload module
@@ -133,5 +157,30 @@ public class AppConfig {
 	public AddPinController addPinController() {
 		return new AddPinController();
 	}
+	
+	//---------------------------
+	//		 Board module
+	//---------------------------
+	
+	@Bean
+	public ArticleDao articleDao() {
+		return new ArticleDao();
+	}
+	
+	@Bean
+	public ArticleService articleServiceImpl() {
+		return new ArticleServiceImpl();
+	}
+	
+	@Bean 
+	public AddArticleController addArticleController() {
+		return new AddArticleController();
+	}
+	
+	@Bean 
+	public ListArticleController listArticleController() {
+		return new ListArticleController();
+	}
+	
 	
 }

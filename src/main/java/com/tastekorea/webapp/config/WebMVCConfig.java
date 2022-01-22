@@ -6,9 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.tastekorea.webapp.board.web.interceptor.BoardAliasInterceptor;
 
 
 
@@ -49,6 +52,26 @@ public class WebMVCConfig implements WebMvcConfigurer{
 	    resolver.setDefaultEncoding("utf-8");
 	    return resolver;
 	}
+	
+	//----------------------------
+	//		interceptors
+	//----------------------------
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(boardAliasInterceptor())
+			.addPathPatterns(
+				"/board/**/*"
+			);
+	}
 
+	/**
+	 * 게시판
+	 * @return
+	 */
+	@Bean
+	public BoardAliasInterceptor boardAliasInterceptor() {
+		return new BoardAliasInterceptor();
+	}
 	
 }

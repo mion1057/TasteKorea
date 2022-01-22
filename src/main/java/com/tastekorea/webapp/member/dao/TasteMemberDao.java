@@ -26,7 +26,7 @@ public class TasteMemberDao extends TasteDao {
 	
 	private static final String SELECT = 
 			"SELECT m.id, m.email, m.passwd, m.guide, m.firstName, m.lastName, "
-			+ " m.phone, m.sex, m.ssn, m.profileImage, m.introduction, "
+			+ " m.phone, m.sex, m.ssn, m.alias, m.profileImage, m.introduction, "
 			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS r_guide "
 			+ " FROM TasteMember m INNER JOIN Region r ON m.regionId = r.id ";
 	
@@ -37,9 +37,10 @@ public class TasteMemberDao extends TasteDao {
 	 * @return
 	 */
 	public long save(TasteMember member) {
-		String sql = "INSERT INTO TasteMember(email, passwd, guide, firstName, "
-				+ " lastName, phone, ssn, sex, profileImage, introduction, regionId)"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO TasteMember("
+				+ " email, passwd, guide, firstName, lastName, phone, ssn, sex, "
+				+ " alias, profileImage, introduction, regionId)"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		PreparedStatementCreator preparedStatementCreator = (connection) -> {
@@ -52,9 +53,10 @@ public class TasteMemberDao extends TasteDao {
 			pstmt.setString(6, member.getPhone());
 			pstmt.setString(7, member.getSsn());
 			pstmt.setString(8, String.valueOf(member.getSex()));
-			pstmt.setString(9, member.getProfileImage());
-			pstmt.setString(10, member.getIntroduction());
-			pstmt.setLong(11, member.getRegion().getId());
+			pstmt.setString(9, member.getAlias());
+			pstmt.setString(10, member.getProfileImage());
+			pstmt.setString(11, member.getIntroduction());
+			pstmt.setLong(12, member.getRegion().getId());
 			
 			return pstmt;
 		};

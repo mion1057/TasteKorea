@@ -90,6 +90,7 @@ SELECT * FROM ForeignLanguage;
 --			[TasteMember]
 -- ====================================	
 DROP TABLE LanguageSkill;
+DROP TABLE AppReply;
 DROP TABLE TasteMember ;
 
 CREATE TABLE TasteMember(
@@ -104,6 +105,7 @@ CREATE TABLE TasteMember(
 	phone			VARCHAR(20),
 	ssn				VARCHAR(6),
 	sex				CHAR(1)			NOT NULL,
+	alias			VARCHAR(20),
 	profileImage	VARCHAR(120),
 	introduction 	VARCHAR(100),
 	
@@ -116,6 +118,7 @@ CREATE TABLE TasteMember(
 ALTER TABLE TasteMember MODIFY COLUMN sex CHAR(1) DEFAULT 'x' NOT NULL;
 ALTER TABLE TasteMember MODIFY COLUMN sex CHAR(1);
 ALTER TABLE TasteMember ADD region VARCHAR(20) NOT NULL DEFAULT '서울';
+ALTER TABLE TasteMember ADD alias VARCHAR(20)
 
 SELECT * FROM TasteMember c ;
 
@@ -140,3 +143,124 @@ CREATE TABLE LanguageSkill(
 	CONSTRAINT LanguageSkill_memberId_FK FOREIGN KEY(memberId) REFERENCES TasteMember(id),
 	CONSTRAINT LanguageSkill_languageId_FK FOREIGN KEY(languageId) REFERENCES ForeignLanguage(id)
 )AUTO_INCREMENT = 2000001;
+
+
+-- ====================================
+--			[PinCategory]
+-- ====================================	
+DROP TABLE PinCategory;
+
+CREATE TABLE PinCategory(
+	id		BIGINT		PRIMARY KEY AUTO_INCREMENT,
+	
+	kor		VARCHAR(30)	NOT NULL,
+	eng		VARCHAR(30)	NOT NULL,
+	
+	regDate 		TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	updateDate		TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+)AUTO_INCREMENT = 1000001;
+
+-- ====================================
+--				[Pin]
+-- ====================================	
+DROP TABLE Pin;
+
+CREATE TABLE Pin(
+	id				BIGINT			PRIMARY KEY AUTO_INCREMENT,
+	categoryId		BIGINT 			NOT NULL,
+	memberId		BIGINT 			NOT NULL,
+	regionId		BIGINT			NOT NULL,
+	
+	imagePath		VARCHAR(50)		NOT NULL,
+	title			VARCHAR(50)		NOT NULL,
+	description		VARCHAR(1000)	NOT NULL,
+	mapData			VARCHAR(100)	NOT NULL,
+	
+	likeCount		BIGINT			NOT NULL,
+	dislikeCount	BIGINT			NOT NULL,
+	
+	regDate         TIMESTAMP      NOT NULL   DEFAULT CURRENT_TIMESTAMP,
+  	updateDate      TIMESTAMP      NOT NULL   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  	
+  	CONSTRAINT Pin_categoryId_FK	FOREIGN KEY(categoryId) REFERENCES PinCategory(id),
+	CONSTRAINT Pin_memberId_FK	FOREIGN KEY(memberId) REFERENCES TasteMember(id),
+	CONSTRAINT Pin_regionId_FK	FOREIGN KEY(regionId) REFERENCES Region(id)
+)AUTO_INCREMENT = 30000001
+
+SELECT * FROM Pin;
+
+
+-- ====================================
+--			[Article]
+-- ====================================
+DROP TABLE Article;
+
+CREATE TABLE Article (
+	id 				BIGINT			PRIMARY KEY AUTO_INCREMENT,			-- articleId
+	memberId		BIGINT			NOT NULL,				-- 작성자 id
+	
+	title 			VARCHAR(80)		NOT NULL,
+	content			LONG VARCHAR	NOT NULL,
+	category		INTEGER			NOT NULL,
+	
+	pics			BOOLEAN			NOT NULL	DEFAULT false,	-- 이미지 존재 여부
+	video			BOOLEAN			NOT NULL	DEFAULT false,	-- 영상 존재 여부
+	pinned			BOOLEAN			NOT NULL	DEFAULT false,	-- 상단 고정 여부
+	
+	hits			INTEGER			NOT NULL	DEFAULT 0,
+	likeCount		INTEGER			NOT NULL	DEFAULT 0,
+	
+	regDate 		TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	updateDate		TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	
+	CONSTRAINT Article_memberId_FK 
+		FOREIGN KEY(memberId) REFERENCES TasteMember(id)
+)AUTO_INCREMENT = 5000001;
+
+
+SELECT * FROM Article ORDER BY regDate DESC;
+
+
+
+-- ====================================
+--			[AppReply]
+-- ====================================
+DROP TABLE AppReply;
+
+CREATE TABLE AppReply (
+	id				BIGINT			PRIMARY KEY AUTO_INCREMENT,
+	masterId		BIGINT			NOT NULL,
+	parentId		BIGINT			NULL,
+	memberId		BIGINT			NOT NULL,
+	
+	appCode			INTEGER			NOT NULL,
+	comment			VARCHAR(1000)	NOT NULL,
+	recipient		VARCHAR(25),
+	priority		INTEGER			NOT NULL	DEFAULT '100',
+	
+	likeCount		INTEGER			NOT NULL	DEFAULT '0',
+	dislikeCount	INTEGER			NOT NULL	DEFAULT '0',
+	
+	CONSTRAINT AppReply_memberId_FK FOREIGN KEY (memberId) REFERENCES TasteMember(id)
+)AUTO_INCREMENT = 7000001;
+
+
+SELECT r.id, r.parentId, r.comment, r.recipient, r.priority, r.likeCount, 
+	r.dislikeCount, r.regDate, r.updateDate, m.id, m.alias, m.profileImage 
+	FROM AppReply r INNER JOIN TasteMember m ON r.memberId = m.id 
+	WHERE r.appCode=?1 AND r.parentId IS NULL
+	ORDER BY r.regDate DESC;
+	
+			+ " ,    "
+			+ " r.regDate, r.updateDate,"
+			+ " pv.pid, pv.alias, pv.memberType, pv.level, pv.iconPath ) "
+			+ " "
+			+ " INNER JOIN Personacon_VIEW pv ON r.personacon = pv.pid "
+			+ " WHERE r.appCode=?1 AND r.replyType = ?2 AND r.parentId IS NULL "
+			+ " AND r.rid > 0 "
+			+ " ORDER BY r.regDate DESC
+
+
+
+

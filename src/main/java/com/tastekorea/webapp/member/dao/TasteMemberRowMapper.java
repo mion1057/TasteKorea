@@ -31,6 +31,7 @@ public class TasteMemberRowMapper implements RowMapper<TasteMember> {
 		tasteMember.setPhone(rs.getString("phone"));
 		tasteMember.setSex(rs.getString("sex").charAt(0));
 		tasteMember.setSsn(rs.getString("ssn"));
+		tasteMember.setAlias(rs.getString("alias"));
 		tasteMember.setProfileImage(rs.getString("profileImage"));
 		tasteMember.setIntroduction(rs.getString("introduction"));
 		tasteMember.setRegDate(rs.getTimestamp("regDate"));

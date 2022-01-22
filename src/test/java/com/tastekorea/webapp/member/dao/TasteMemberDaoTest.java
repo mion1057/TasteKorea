@@ -67,6 +67,7 @@ public class TasteMemberDaoTest extends TasteTest{
 		member.setPhone("01022224444");
 		member.setSsn("901103");
 		member.setSex('M');
+		member.setAlias("현덕유비");
 		member.setIntroduction("소개");
 		member.setRegion(new Region(10000001));
 		
