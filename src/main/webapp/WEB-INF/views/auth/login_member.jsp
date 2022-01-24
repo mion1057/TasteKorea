@@ -30,12 +30,12 @@
 						<h3>Email</h3>
 						<div>
 							<form:input path="email" required="required"/>
-							<button class="remove_email rbtn" onclick="remove_email()"><span>delete</span></button>
+							<span class="remove_email rbtn" onclick="remove_email()"><span>delete</span></span>
 						</div>
 						<h3>Password</h3>
 						<div>
 							<form:password path="passwd" required="required"/>
-							<button class="remove_passwd rbtn" onclick="remove_passwd()"><span>delete</span></button>
+							<span class="remove_passwd rbtn" onclick="remove_passwd()"><span>delete</span></span>
 						</div>
 						<button class="loginbtn">Log in</button>
 					</form:form>
@@ -65,6 +65,12 @@
                 return false;
             }
         })
+        function remove_email() {
+            $('#email').val('');
+        }
+        function remove_passwd() {
+            $('#passwd').val('');
+        }
     </script>
 
 </body>

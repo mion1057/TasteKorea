@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>tasteKorea</title>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/signup_companion.css'/>" />
+	href="<c:url value='/resources/css/signup_traveler.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/header.css'/>" />
 <link rel="stylesheet" type="text/css"
@@ -40,6 +40,7 @@
 						</div>
 						<!-- 개인정보 -->
 						<div id="second_box">
+							 
 							<h3>First name</h3>
 							<form:input path="firstName" autocomplete="off"
 								required="required" />
@@ -47,14 +48,14 @@
 							<form:input path="lastName" autocomplete="off"
 								required="required" />
 							<h3>Sex</h3>
-							<form:select path="sex">
+							<form:select path="sex">	
 								<option value="m">male</option>
 								<option value="f">female</option>
 							</form:select>
 							<h3>Region</h3>
-							<form:select path="region">
+							<form:select path="region" required="required">
 								<option value="0">------</option>
-								<form:options items="${regionList}" itemLabel="eng" itemValue="regionId"/>
+								<form:options items="${regionList}" itemLabel="region" itemValue="regionId"/>
 							</form:select>
 							<button id="submit_btn">Submit</button>
 						</div>

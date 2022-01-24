@@ -18,8 +18,8 @@
 		<!-- 주메뉴 -->
 		<div id="gnb_zone">
 			<ul>
-				<li class="gnb_list"><a href="" class="gnb_btn">가이드리스트</a>
-				<li class="gnb_list"><a href="/pin/${user.email}/index" class="gnb_btn">PIN</a></li>
+				<li class="gnb_list"><a href="/member/companion/list" class="gnb_btn">가이드리스트</a>
+				<li class="gnb_list"><a href="" class="gnb_btn">PIN</a></li>
 			</ul>
 		</div>
 		<!-- 로그인 & 회원가입 -->
@@ -43,10 +43,11 @@
                     <li class="sub_list membername">
                         <a href="#"><span>${user.firstName}</span><span>${user.lastName}님</span></a>
                         <ul class="child_wrap">
-                        	<c:if test="${user.guide == true}">
+                        	<c:if test="${user.guide != true}">
                             	<li class="child_list after1"><a href="/member/companion/mypage">내 정보</a></li>
+                            	<li class="child_list after2"><a href="">핀 작성</a></li>
                             </c:if>
-                            <c:if test="${user.guide == false}">
+                            <c:if test="${user.guide != false}">
                             	<li class="child_list after1"><a href="member/traveler/mypage">내 정보</a></li>
                             </c:if>
                             <!-- <li class="child_list after2"><a href="">내 게시글</a></li> -->

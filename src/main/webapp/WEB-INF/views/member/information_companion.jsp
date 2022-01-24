@@ -30,8 +30,7 @@
 					<h2>profile information</h2>
 					<div class="profile">
 						<div class="profile_first">
-							<span class="profileImage"><img src="images/dague1.jpg"
-								alt="/Users/yuseongmin/eclipse/jee-2021-12/Eclipse.app/Contents/MacOS/X:/Upload/${user.profileImage}"></span>
+							<span class="profileImage"><img src="<c:url value='/resource/companion/profie/${user.profileImage }'/>"></span>
 							<h3>alias</h3>
 							<input type="text" id="alias" name="alias" 
 							value = "${user.alias }"readonly="readonly"/>
