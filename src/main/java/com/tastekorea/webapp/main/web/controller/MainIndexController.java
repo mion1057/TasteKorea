@@ -10,9 +10,5 @@ public class MainIndexController {
 	public String index() {
 		return "index";
 	}
-	
-	@GetMapping("/chart")
-	public String chart() {
-		return "chart";
-	}
+
 }
