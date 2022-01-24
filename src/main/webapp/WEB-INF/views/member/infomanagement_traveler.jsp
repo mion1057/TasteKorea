@@ -30,15 +30,15 @@
                         <form:form modelAttribute="" method="get">
                             <div class="profile_first">
                                 <h3>First name</h3>
-                                <form:input path="firstName" value="${tasteMember.firstName }" readonly/>
+                                <form:input path="firstName" value="${user.firstName }" readonly/>
                                 <h3>Last name</h3>
-                                <form:input path="lastName" value="${tasteMember.lastName }" readonly/>
+                                <form:input path="lastName" value="${user.lastName }" readonly/>
                             </div>
                             <div class="profile_second">
                                 <h2>Email</h2>
-                                <form:input path="email" value="${tasteMember.email }" readonly/>
+                                <form:input path="email" value="${user.email }" readonly/>
                                 <h2>Region</h2>
-                                <form:input path="region" value="${tasteMember.region }" readonly/>
+                                <form:input path="region" value="${user.region }" readonly/>
                             </div>
                         </form:form>
                             <div class="profile_third">

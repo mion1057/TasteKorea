@@ -54,7 +54,7 @@ public class FileUploader {
 			throw new RuntimeException("upload file failed : " 
 									+ multipartFile.getOriginalFilename());
 		}
-		
+		System.out.println(uploadPath);
 		//uploadRootDir 기준에서 DB에 저장될 경로
 		return subDir + "/" + savedFileName;
 	}

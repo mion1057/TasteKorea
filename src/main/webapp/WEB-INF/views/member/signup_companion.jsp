@@ -61,7 +61,7 @@
 								maxlength="11" />
 							<h3>지역</h3>
 							<form:select path="region">
-								<form:options items="${regionList}"  itemLabel="kor" itemValue="eng"/>
+								<form:options items="${regionList}"  itemLabel="region" itemValue="regionId"/>
 							</form:select>
 						</div>
 						<div id="third_box">

@@ -1,0 +1,166 @@
+@charset "utf-8";
+@import url(//http://www.google.com/fonts/earlyaccess);
+
+* {
+    margin: 0; padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+html, body {
+    height: 100%;
+}
+/* main */
+section {
+    width: 100%; height: 200vh;
+}
+#container {
+    width: 100%;
+    margin: 0 auto;
+}
+.content {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+.title_box {
+    width: 100%; height: 130px;
+    border-bottom: 1px solid #dddddd;
+}
+.title_box > input {
+    border: none;
+}
+#title {
+    width: 100%; height: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    text-indent: 30px;
+    border-radius: 20px 20px 0;
+    margin-bottom: 10px;
+}
+#region {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    margin:0 0 5px 30px;
+    background-color: #dddddd;
+}
+#category {
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-left: 30px;
+    background-color: #dddddd;
+}
+.pin_detail {
+    padding-top: 20px;
+}
+.image_box {
+    width: 97%;
+    margin: 0 auto;
+}
+.image_box > img {
+    width: 100%; height: 800px;
+    background: contain;
+}
+.information_box {
+    width: 100%;
+}
+.guide_info {
+    width: 40%; height: 200px;
+}
+.guide_info > div:nth-child(1) {
+    width: 30%; height: 200px;
+    float: left;
+}
+.guide_info > div:nth-child(2) {
+    padding-top: 10px;
+    width: 80%; height: 300px;
+}
+.guide_info > div > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: calc(50% - 25px) 0 0 calc(50% - 50px);
+}
+.guide_info p {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #8f8f8f;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.comments_box {
+    width: 100%; height: 50px;
+    border-top: 1px solid #dddddd;
+}
+
+.comments_box input {
+    width: 99%; height: 30px;
+    float: left;
+    border: none;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    text-indent: 10px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.btn_box {
+    width: 100%; height: 40px;
+    display: none;
+}
+.btn_box span {
+    padding: 2px 15px;
+    font-weight: bold;
+    float: right;
+}
+.btn_box span:hover {
+    color: #0071EB;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.btn_box button {
+    border: none;
+    padding: 5px 20px;
+    color: #fff;
+    background-color:#dddddd;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.btn_box button:hover {
+    background-color: #000;
+    transition: 0.3s;
+}
+.comments_here {
+    width: 100%; height: 50px;
+    padding-top: 10px;
+    border-top: 1px solid #dddddd;
+}
+.comments_here img{
+    width: 4%; height: 40px;
+    border-radius: 100%;
+    margin: 0 10px;
+    float: left;
+}
+.comments_here input {
+    width: 99%; height: 40px;
+    border: none;
+    text-indent: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+input:focus { outline: none;}

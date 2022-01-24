@@ -20,6 +20,7 @@ public class LoginController {
 	@Autowired
 	private TasteMemberService memberService;
 
+	
 	@GetMapping("/member/login")
 	public String login(MemberCommand command, Model model) {
 		return "/auth/login_member";
@@ -27,16 +28,23 @@ public class LoginController {
 	}
 
 	@PostMapping("/member/login")
-	public String login(MemberCommand memberCommand, Model model, HttpSession session) throws LoginFailException {
+	public String login( MemberCommand memberCommand, Model model, HttpSession session) throws LoginFailException {
 		
 		User user = memberService.loginMember(memberCommand.getEmail(), memberCommand.getPasswd());
 		
+		if(session.getAttribute("user") != null) {
+			session.removeAttribute("user");
+		}
+		
 		if(user == null) {
 			System.out.println("로그인 오류: 유저 정보를 다시 확인해 주세요.");
+			model.addAttribute("err", "등록되지 않은 이메일 혹은 비밀번호입니다.");
 			return "redirect:/member/login";
 		}
 		
+		
 		System.out.println(user.getDetail());
+		
 		
 		session.setAttribute("user", user);
 		

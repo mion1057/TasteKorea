@@ -48,10 +48,10 @@ public class GetMemberController {
 		String nextPage = null;
 		if(type.equals("traveler")) {
 			memberPage = memberService.getTravelerList(pageable);
-			nextPage = "mmeber/list_travelers";
+			nextPage = "member/list_travelers";
 		}else {
 			memberPage = memberService.getCompanionList(pageable);
-			nextPage = "mmeber/list_companions";
+			nextPage = "member/list_companions";
 		}
 		model.addAttribute("pageMaker", new PageMaker<TasteMember>(memberPage));
 		

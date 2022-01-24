@@ -2,6 +2,7 @@ package com.tastekorea.webapp.member.dao;
 
 import java.sql.PreparedStatement;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -143,17 +144,22 @@ public class TasteMemberDao extends TasteDao {
 			return null;
 		}
 	}
-	
-	public void UpdateTravelerInfo(TasteMember member, String email) {
-		String sql = "UPDATE TasteMember SET passwd = ?, regionId = ? WHERE email = ?";
-	
-		jdbcTemplate.update(sql, member.getPasswd(), member.getRegion().getId(), member.getEmail());
-		
+
+
+	public User loginCheck(Map<String, String> loginMap) throws LoginFailException {
+		String email = loginMap.get("email");
+		String passwd = loginMap.get("passwd");
+		String sql = SELECT + " WHERE email = ? AND passwd = ?";
+		try {
+		return jdbcTemplate.queryForObject(sql, new UserRowMapper(), email, passwd);
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
-	public void UpdateCompanionInfo(TasteMember member, String email) {
-		String sql = "UPDATE TasteMember a, LanguageSkill b, foreignLanguage c"
-				+ "ON a.id = b.memberId"
-				+ "SET a.passwd = ?, a.regionId = ?, c.";
+	
+	public User myPage(User user) {
+		String sql = SELECT + "WHERE email = ?";
+		return jdbcTemplate.queryForObject(sql, new UserRowMapper(), user.getEmail());
 	}
 	
 }

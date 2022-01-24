@@ -85,6 +85,7 @@ public class AddMemberController {
 		TasteMember m = new TasteMember();
 		m.setEmail(memberCommand.getEmail());
 		m.setPasswd(memberCommand.getPasswd());
+		m.setGuide(memberCommand.isGuide());
 		m.setFirstName(memberCommand.getFirstName());
 		m.setLastName(memberCommand.getLastName());
 		m.setPhone(memberCommand.getPhone());
@@ -187,5 +188,4 @@ public class AddMemberController {
 		}
 		return false;
 	}
-	
 }

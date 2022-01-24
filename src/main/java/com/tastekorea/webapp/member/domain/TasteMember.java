@@ -73,6 +73,10 @@ public class TasteMember extends CommonEntity{
 	}
 	
 	
+	public TasteMember(long long1, String string) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 전달된 LanguageSkill을 회원의 사용가능 언어 목록에 추가
 	 * 

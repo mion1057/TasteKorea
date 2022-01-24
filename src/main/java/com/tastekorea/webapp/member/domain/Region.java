@@ -27,6 +27,10 @@ public class Region extends CommonEntity{
 		this.eng = eng;
 		this.guide = guide;
 	}
+
+	public Region(long long1, String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

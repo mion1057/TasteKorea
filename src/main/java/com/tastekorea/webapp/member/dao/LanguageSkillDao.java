@@ -21,7 +21,7 @@ public class LanguageSkillDao {
 	 * languageSkill 등록
 	 */
 	public void add(LanguageSkill languageSkill) {
-		String sql = "INSERT INTO LanguageSkill(companionId, languageId, "
+		String sql = "INSERT INTO LanguageSkill(memberId, languageId, "
 				+ "skillLevel) VALUES(?, ?, ?)";
 		
 		jdbcTemplate.update(sql, languageSkill.getMember().getId(), 
@@ -32,7 +32,7 @@ public class LanguageSkillDao {
 	 * companionId를 통해 각 companion이 보유한 languageSkill조회
 	 */
 	public List<LanguageSkill> findByMember(TasteMember member) {
-		String sql = "SELECT * FROM languageSkill WHERE companionId = ?";
+		String sql = "SELECT * FROM languageSkill WHERE memberId = ?";
 		return jdbcTemplate.query(sql, new LanguageSkillRowMapper(), member.getId());
 	}
 }

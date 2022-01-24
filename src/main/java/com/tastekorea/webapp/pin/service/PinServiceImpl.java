@@ -14,7 +14,7 @@ public class PinServiceImpl implements PinService{
 
 	@Override
 	public Pin addPin(Pin pin) {
-		long id = pinDao.savePin(pin);
+		long id = pinDao.save(pin);
 		pin.setId(id);
 		return pin;
 	}

@@ -1,6 +1,7 @@
 package com.tastekorea.webapp.member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -110,15 +111,15 @@ public class TasteMemberServiceImpl implements TasteMemberService {
 		return memberDao.loginMember(email, passwd);
 	}
 
-	
 	@Override
-	public void UpdateMemberInfo(TasteMember member, String email) {
-		memberDao.UpdateTravelerInfo(member, email);
+	public User loginCheck(Map<String, String> loginMap) throws LoginFailException {
+		
+		return memberDao.loginCheck(loginMap);
 	}
 
 
 	@Override
-	public void UpdateCompanionInfo(TasteMember member, String email) {
-		memberDao.UpdateCompanionInfo(member, email);
+	public User myPage(User user) {
+		return memberDao.myPage(user);
 	}
 }

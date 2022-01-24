@@ -1,5 +1,7 @@
 package com.tastekorea.webapp.pin.web.controller;
 
+import javax.swing.plaf.synth.Region;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,15 +32,14 @@ public class AddPinController {
 	public String addPin(PinCommand command, Model model) {
 		Pin pin = new Pin();
 		pin.setMember(command.getMember());
-		pin.setPinRegion(command.getPinRegion());
+		pin.setRegion(command.getRegion());
 		pin.setDescription(command.getDescription());
 		pin.setLike(command.getLike());
 		pin.setDislike(command.getDislike());
-		pin.setReadCount(command.getReadCount());
 		
 		if(command.getImagePath() != null) {
 			pin.setImagePath(fileUploader.fileUpload(command.getImagePath()));
-		}
+		}	
 		
 		pin = pinService.addPin(pin);
 		model.addAttribute("pin", pin);

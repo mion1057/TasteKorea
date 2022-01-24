@@ -1,5 +1,7 @@
 package com.tastekorea.webapp.member.service;
 
+import java.util.Map;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -53,9 +55,13 @@ public interface TasteMemberService {
 	 * @throws LoginFailException 
 	 */
 	User loginMember(String email, String passwd) throws LoginFailException;
-	
-	void UpdateMemberInfo(TasteMember member, String email);
-	
-	void UpdateCompanionInfo(TasteMember member, String email);
 
+	/**
+	 * 로그인 체크
+	 * @param loginMap
+	 * @return
+	 */
+	User loginCheck (Map<String, String> loginMap) throws LoginFailException;
+	
+	User myPage(User user);
 }
