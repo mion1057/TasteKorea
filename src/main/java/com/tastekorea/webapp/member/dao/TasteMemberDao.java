@@ -30,7 +30,7 @@ public class TasteMemberDao extends TasteDao {
 	
 	private static final String SELECT = 
 			"SELECT m.id, m.email, m.passwd, m.guide, m.firstName, m.lastName, "
-			+ " m.phone, m.sex, m.ssn, m.guide, m.profileImage, m.introduction, "
+			+ " m.phone, m.sex, m.ssn, m.alias, m.guide, m.profileImage, m.introduction, "
 			+ " m.regDate, m.updateDate, r.kor, r.eng, r.guide AS r_guide "
 			+ " FROM TasteMember m INNER JOIN Region r ON m.regionId = r.id ";
 	
@@ -42,8 +42,8 @@ public class TasteMemberDao extends TasteDao {
 	 */
 	public long save(TasteMember member) {
 		String sql = "INSERT INTO TasteMember(email, passwd, guide, firstName, "
-				+ " lastName, phone, ssn, sex, profileImage, introduction, regionId)"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " lastName, phone, ssn, sex, profileImage, introduction, regionId, alias)"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		PreparedStatementCreator preparedStatementCreator = (connection) -> {
@@ -59,7 +59,7 @@ public class TasteMemberDao extends TasteDao {
 			pstmt.setString(9, member.getProfileImage());
 			pstmt.setString(10, member.getIntroduction());
 			pstmt.setLong(11, member.getRegion().getId());
-			
+			pstmt.setString(12, member.getAlias());
 			return pstmt;
 		};
 		jdbcTemplate.update(preparedStatementCreator, keyHolder);

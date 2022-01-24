@@ -14,6 +14,7 @@ import com.tastekorea.webapp.member.domain.TasteMember;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@ToString
 public class Pin extends CommonEntity{
 	   
 	   @ManyToOne

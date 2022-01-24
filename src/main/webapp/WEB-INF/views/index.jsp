@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"   href="<c:url value='/resources/css/index.css'/>" />
-<link rel="stylesheet" type="text/css"   href="<c:url value='/resources/css/header.css'/>" />
-<link rel="stylesheet" type="text/css"   href="<c:url value='/resources/css/footer.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/index.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/header.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/footer.css'/>" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/menu.js'/>"></script>
 <script src="<c:url value='/resources/js/slideshow.js'/>"></script>
@@ -19,7 +19,7 @@
 		<%@ include file="/WEB-INF/views/incl/header.jsp"%> 
 	</header>
 	<!-- index 메인 -->
-           <section>
+       <section>
         <div id="container">
             <div id="first_main">
                 <div id="slideshow-containerider">
@@ -32,48 +32,53 @@
                     <input type="text" placeholder="어디로 떠나시나요?">
                     <button>Search</button>
                 </div>
-                <span class="welcome_msg">한국에 오시나요?<br>당신의 여행 친구를 찾아보세요</span>
+                <span class="welcome_msg">Are you coming to Korea?<br>Meet your friend at tasteKorea.</span>
             </div>
             <div id="second_main">
                 <div class="pinbox_wrap">
-                    <h2>최신 PIN을 만나보세요</h2>
+                    <h2>Get the latest PIN</h2>
                     <div class="pinbox left">
                         <div class="pinbox_image">
-                            <a href=""><img src="" alt=""></a>
+                            <a href=""><img src="images/Bukchon.jpg" alt=""></a>
                         </div>
                         <div class="pinbox_text">
                             <div class="text1">
-                                <h3>#부산#여기는모를껄<br>#나만아는장소</h3>
+                                <h3>핀제목 들어감</h3>
                             </div>
                             <div class="text2">
-                                <div><img src="" alt=""></div>
-                                <div><span>${companion.name}님</span></div>
+                                <!-- 가이드 프로필 사진 들어감-->
+                                <img src="images/user.png" alt="">
+                                <span>가이드 닉네임</span>
                             </div>
                         </div>
                     </div>
                     <div class="pinbox center">
                         <div class="pinbox_image">
-                            <a href=""><img src="" alt=""></a>
+                            <a href=""><img src="images/bukchon2.jpg" alt=""></a>
                         </div>
                         <div class="pinbox_text">
                             <div class="text1">
-                                <h3>#서울#로컬만아는곳<br>#로컬</h3>
+                                <h3>핀제목 들어감</h3>
                             </div>
                             <div class="text2">
-                                <span>${companion.name}님</span>
+                                <!-- 가이드 프로필 사진 들어감-->
+                                <img src="images/user.png" alt="">
+                                <span>가이드 닉네임</span>
                             </div>
                         </div>
                     </div>
                     <div class="pinbox right">
                         <div class="pinbox_image">
-                            <a href=""><img src="" alt=""></a>
+                            <a href=""><img src="images/seoul.jpg" alt=""></a>
                         </div>
                         <div class="pinbox_text">
                             <div class="text1">
-                                <h3>#언제가보겠어#인생사진<br>#노을맛집</h3>
+                                <h3>핀제목 들어감</h3>
                             </div>
                             <div class="text2">
-                                <span>${companion.name}님</span>
+                                <!-- 가이드 프로필 사진 들어감-->
+                                <img src="images/user.png" alt="">
+                                <span>가이드 닉네임</span>
                             </div>
                         </div>
                     </div>
@@ -81,52 +86,52 @@
                 </div>
                 <div id="third_main">
                     <!-- 우측스크롤바 가진 지역 PIN -->
-                    <h2>지역별 핀</h2>
+                    <h2>Regional PIN</h2>
                     <div id="region_content_wrap">
                         <div class="region_pin_wrap">
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>서울</span>
+                                <span>Seoul</span>
                                 <img src="<c:url value='/resources/images/region/seoul.jpg'/>" >
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>부산</span>
+                                <span>Busan</span>
                                 <img src="<c:url value='/resources/images/region/busan.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>제주</span>
+                                <span>Jejudo</span>
                                 <img src="<c:url value='/resources/images/region/jeju.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>대구</span>
+                                <span>Daegu</span>
                                 <img src="<c:url value='/resources/images/region/daegu1.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>울릉도</span>
+                                <span>Ulleungdo</span>
                                 <img src="<c:url value='/resources/images/region/ulleungdo.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>춘천</span>
+                                <span>Chuncheon</span>
                                 <img src="<c:url value='/resources/images/region/chuncheon.png'/>" alt="">
                             </div>
-                            <div class="region_pin_box">
+                            <div class="region_pin_box"	>
                                 <a href=""></a>
-                                <span>광주</span>
+                                <span>Gwangju</span>
                                 <img src="<c:url value='/resources/images/region/gwangju.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>인천</span>
+                                <span>Incheon</span>
                                 <img src="<c:url value='/resources/images/region/incheon.jpg'/>" alt="">
                             </div>
                             <div class="region_pin_box">
                                 <a href=""></a>
-                                <span>평양</span>
+                                <span>Pyongyang</span>
                                 <img src="<c:url value='/resources/images/region/pyongyang.jpg'/>" alt="">
                             </div>
                             <div class="view_more">
@@ -137,13 +142,71 @@
                 </div>
                 <div id="fourth_main">
                     <div class="fourth_content">
-                        <a href="/member/companion/list">Guide List</a>
-                        <div class="fourth_background"></div>
+                        <div class="top_background">
+                            <span>PIN by Category</span>
+                        </div>
+                        <div class="category">
+                            <div class="category_pin_wrap">
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>food &amp; drink</span>
+                                        <img src="<c:url value='/resources/images/category/food.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>sightseeing</span>
+                                        <img src="<c:url value='/resources/images/category/sightseeing.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>shopping</span>
+                                        <img src="<c:url value='/resources/images/category/shopping.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>play &amp; arcade</span>
+                                        <img src="<c:url value='/resources/images/category/arcade.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>medical &amp; beauty</span>
+                                        <img src="<c:url value='/resources/images/category/medical.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>sports &amp; leisure</span>
+                                        <img src="<c:url value='/resources/images/category/sports.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="category_pin">
+                                    <div class="nothing">
+                                        <a href=""></a>
+                                        <span>job &amp; education</span>
+                                        <img src="<c:url value='/resources/images/category/education.jpg'/>" >
+                                    </div>
+                                </div>
+                                <div class="cview_more">
+                                    <a href="">View more</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="">
-                    <div>
-                        
+                <div id="fifth_main">
+                    <div class="fifth_content">
+                        <a href="/member/companion/list">Guide List</a>
+                        <div class="fifth_background"></div>
                     </div>
                 </div>
             </div>

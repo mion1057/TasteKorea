@@ -27,6 +27,7 @@ public class TasteMemberRowMapper implements RowMapper<TasteMember> {
 		tasteMember.setEmail(rs.getString("email"));
 		tasteMember.setPasswd(rs.getString("passwd"));
 		tasteMember.setGuide(rs.getBoolean("guide"));
+		tasteMember.setAlias(rs.getString("alias"));
 		tasteMember.setFirstName(rs.getString("firstName"));
 		tasteMember.setLastName(rs.getString("lastName"));
 		tasteMember.setPhone(rs.getString("phone"));

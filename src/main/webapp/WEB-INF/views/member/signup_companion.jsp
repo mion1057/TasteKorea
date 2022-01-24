@@ -59,6 +59,9 @@
 							<form:input path="phone" placeholder="휴대전화번호 '-' 제외"
 								autocomplete="off" required="required" pattern="[0-9]+"
 								maxlength="11" />
+							<h3>닉네임</h3>
+                    		<form:input path="alias" autocomplete="off" placeholder="닉네임"
+                     		 	required="required"/>	
 							<h3>지역</h3>
 							<form:select path="region">
 								<form:options items="${regionList}"  itemLabel="region" itemValue="regionId"/>
@@ -95,8 +98,5 @@
 	<footer>
 		<%@ include file="/WEB-INF/views/incl/footer.jsp"%>
 	</footer>
-	<script>
-		
-	</script>
 </body>
 </html>

@@ -38,7 +38,7 @@ public class AppReplyDao extends TasteDao{
       KeyHolder keyHolder = new GeneratedKeyHolder();
       PreparedStatementCreator preparedStatementCreator = (connection) -> {
          PreparedStatement pstmt = connection.prepareStatement(sql, new String[] { "id" });
-         System.out.println("pstmt: " + pstmt);
+         System.out .println("pstmt: " + pstmt);
          System.out.println("reply: " + reply);
          pstmt.setLong(1, reply.getParentId());
          pstmt.setLong(2, reply.getMember().getId());

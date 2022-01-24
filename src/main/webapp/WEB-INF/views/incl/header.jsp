@@ -19,7 +19,7 @@
 		<div id="gnb_zone">
 			<ul>
 				<li class="gnb_list"><a href="" class="gnb_btn">가이드리스트</a>
-				<li class="gnb_list"><a href="/pin/index" class="gnb_btn">PIN</a></li>
+				<li class="gnb_list"><a href="/pin/${user.email}/index" class="gnb_btn">PIN</a></li>
 			</ul>
 		</div>
 		<!-- 로그인 & 회원가입 -->

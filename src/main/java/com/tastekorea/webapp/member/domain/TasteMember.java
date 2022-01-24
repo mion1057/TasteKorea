@@ -62,6 +62,7 @@ public class TasteMember extends CommonEntity{
 	//------------------------
 	private String profileImage;	//프로필 사진		(가이드 필수)
 	private String introduction;	//자기 소개 및 PR	(가이드 필수)
+	private String alias;			//별명
 	
 	
 	public TasteMember() {

@@ -30,6 +30,7 @@ public class MemberCommand extends CommonEntity {
 	private String lastName;
 	private long region;			//지역(가이드), 국적(여행자)
 	private char sex;				//필수정보(안전성)
+	private String alias;
 	
 	private String phone;
 	private String ssn;

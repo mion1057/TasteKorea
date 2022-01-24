@@ -88,6 +88,7 @@ public class AddMemberController {
 		m.setGuide(memberCommand.isGuide());
 		m.setFirstName(memberCommand.getFirstName());
 		m.setLastName(memberCommand.getLastName());
+		m.setAlias(memberCommand.getAlias());
 		m.setPhone(memberCommand.getPhone());
 		m.setSsn(memberCommand.getSsn());
 		m.setSex(memberCommand.getSex());

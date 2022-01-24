@@ -47,11 +47,14 @@
 							<input type="text" id="ssn" value="${user.ssn }" readonly="readonly">
 							<h2>region</h2>
 							<input type="text" id="region" value="${user.region }" readonly="readonly">
-							<h2>language</h2>
-							<input type="text" id="language" value="${user.language }" readonly="readonly">
-							<h2>language skill level</h2>
-							<input type="text" id="languageSkillLevel" value="${user}"
-								readonly="readonly">
+							<c:forEach var="language" items="${list}">
+								<h2>language</h2>
+                            	<input type="text" id="language" 
+                            	value="${language.skill.kor}" readonly="readonly">
+                            	<h2>language skill level</h2>
+                            	<input type="text" id="languageSkillLevel" 
+                            	value="${language.skill.skillLevel }" readonly="readonly">
+							</c:forEach>
 							<h3>introduction</h3>
 							<div class="introduction">
 								<pre>

@@ -21,6 +21,7 @@ public class User extends CommonEntity {
 	private char sex;
 	private Region region;
 	private boolean guide;
+	private String alias;
 	
 	//------------------------
 	//		가이드 필수 정보
