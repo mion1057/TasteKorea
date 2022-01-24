@@ -110,7 +110,7 @@ public class TasteMemberDao extends TasteDao {
 	 * @return
 	 */
 	public Page<TasteMember> findAllCompanions(Pageable pageable) {
-		String sql = pagingQuery(SELECT + " WHERE guide = false", pageable);
+		String sql = pagingQuery(SELECT + " WHERE m.guide = true", pageable);
 		List<TasteMember> list = jdbcTemplate.query(sql, new TasteMemberRowMapper());
 
 		return new PageImpl<TasteMember>(list, pageable, count("TasteMember"));
@@ -123,7 +123,7 @@ public class TasteMemberDao extends TasteDao {
 	 * @return
 	 */
 	public Page<TasteMember> findAllTravelers(Pageable pageable) {
-		String sql = pagingQuery(SELECT + " WHERE guide = true", pageable);
+		String sql = pagingQuery(SELECT + " WHERE m.guide = false", pageable);
 		List<TasteMember> list = jdbcTemplate.query(sql, new TasteMemberRowMapper());
 
 		return new PageImpl<TasteMember>(list, pageable, count("TasteMember"));

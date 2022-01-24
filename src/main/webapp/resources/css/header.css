@@ -19,9 +19,11 @@
         list-style: none;
     }
     header {
+    	width: 1400px;
 		height: 200px;
 		position: relative;
 		z-index: 9999;
+		margin: 0 auto;
 	}
 	header:after {
 		content: "";
@@ -65,11 +67,15 @@
 		margin-left: 20%;
 	}
 	.gnb_list {
-		width: 33.333%;
+		width: 50%;
 		float: left;
 		height: 130px;
 		line-height: 130px;
 		text-align: center;
+	}
+	.gnb_list a:hover {
+		border-bottom: 3px solid #000;
+		transition: 0.2s;
 	}
 	.gnb_btn {
 		font-size: 20px;
@@ -96,6 +102,9 @@
 		margin-right: 20px;
 		line-height: 40px;
 	}
+	.sub_list > a {
+		color: #fff;
+	}
 	.child_wrap {
 		width: 50%;
 		position: absolute;
@@ -112,30 +121,30 @@
 		height: 40px;
 	}
 	.before1 {
-		background: url('../images/traveler.png') no-repeat 5px;
+		background: url('../images/icon/traveler.png') no-repeat 5px;
 		width: 100%;
 		height: 40px;
 		border-bottom: 1px solid rgb(187, 187, 187);
 	}
 	.before2 {
-		background: url('../images/companion.png') no-repeat 5px;
+		background: url('../images/icon/companion.png') no-repeat 5px;
 		width: 100%;
 		height: 40px;
 	}
     .after1 {
-        background: url('../images/user.png') no-repeat 5px ;
+        background: url('../images/icon/user.png') no-repeat 5px ;
         width: 100%; height: 40px;
         border-bottom: 1px solid rgb(187, 187, 187);
         text-indent: 20px;
     }
     .after2 {
-        background: url('../images/post.png') no-repeat 5px ;
+        background: url('../images/icon/post.png') no-repeat 5px ;
         width: 100%; height: 40px;
         border-bottom: 1px solid rgb(187, 187, 187);
         text-indent: 20px;
     }
     .after3 {
-        background: url('../images/logout.png') no-repeat 5px ;
+        background: url('../images/icon/logout.png') no-repeat 5px ;
         width: 100%; height: 40px;
         text-indent: 20px;
     }
@@ -152,5 +161,12 @@
 	}
 	.before2 {
 		text-indent: 30px;
+	}
+}
+
+
+@media only screen and (min-width : 1920px) {
+	header {
+		width: 1800px;
 	}
 }

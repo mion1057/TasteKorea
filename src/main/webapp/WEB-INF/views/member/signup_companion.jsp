@@ -27,7 +27,7 @@
 		<div id="container">
 			<form:form method="post" modelAttribute="memberCommand"
 				enctype="multipart/form-data">
-				<form:input path="guide" style="display=none;" value="true"/>
+				<form:input path="guide" style="display: none;" value="true"/>
 				<div id="content_wrap">
 					<div id="content">
 						<!-- 이메일 & 패스워드 -->
@@ -42,10 +42,10 @@
 						<!-- 개인정보 -->
 						<div id="second_box">
 							<h3>이름</h3>
-							<form:input path="firstName" minlength="2" autocomplete="off"
+							<form:input path="firstName" autocomplete="off"
 								required="required" />
 							<h3>성</h3>
-							<form:input path="lastName" minlength="2" autocomplete="off"
+							<form:input path="lastName" autocomplete="off"
 								required="required" />
 							<h3>주민등록번호 앞 6자리</h3>
 							<form:input path="ssn" maxlength="6" autocomplete="off"
@@ -60,8 +60,9 @@
 								autocomplete="off" required="required" pattern="[0-9]+"
 								maxlength="11" />
 							<h3>지역</h3>
-							<form:select path="region">
-								<form:options items="${regionList}"  itemLabel="kor" itemValue="eng"/>
+							<form:select path="region" required="required">
+								<option value="0">------</option>
+								<form:options items="${regionList}"  itemLabel="region" itemValue="regionId"/>
 							</form:select>
 						</div>
 						<div id="third_box">
