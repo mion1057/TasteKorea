@@ -15,18 +15,21 @@ import org.springframework.stereotype.Repository;
 
 import com.tastekorea.webapp.common.dao.TasteDao;
 import com.tastekorea.webapp.pin.domain.Pin;
-import com.tastekorea.webapp.pin.domain.PinRowMapper;
 
 @Repository
-public class PinDao extends TasteDao {
-
-	private static final String SELECT = "SELECT p.*, c.eng AS cateEng, c.kor AS cateKor, r.eng As regionEng,"
-			+ " r.kor AS regionKor, m.alias" + "   FROM Pin p INNER JOIN Region r ON p.regionId = r.id"
-			+ "   INNER JOIN PinCategory c ON p.categoryId = c.id" + "   INNER JOIN TasteMember m ON p.memberId = m.id";
-
+public class PinDao extends TasteDao{
+	
+	private static final String SELECT = 
+			"SELECT p.*, c.eng AS cateEng, c.kor AS cateKor, r.eng As regionEng,"
+			+ " r.kor AS regionKor, m.alias As memberAlias, m.profileImage As memberProfile"
+			+ "	FROM Pin p INNER JOIN Region r ON p.regionId = r.id"
+			+ "	INNER JOIN PinCategory c ON p.categoryId = c.id"
+			+ "	INNER JOIN TasteMember m ON p.memberId = m.id";
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
+	
+	
 	/**
 	 * 
 	 * @param pin
@@ -34,8 +37,9 @@ public class PinDao extends TasteDao {
 	 */
 	public long save(Pin pin) {
 		String sql = "INSERT INTO Pin(memberId, regionId, categoryId, imagePath,"
-				+ "title, description, mapData, likeCount, dislikeCount) VALUES (" + "?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-
+		  		+ "title, description, mapData, likeCount, dislikeCount)"
+		  		+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+		  
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		PreparedStatementCreator preparedStatementCreator = (connection) -> {
 			PreparedStatement pstmt = connection.prepareStatement(sql, new String[] { "id" });
@@ -53,37 +57,71 @@ public class PinDao extends TasteDao {
 		};
 		jdbcTemplate.update(preparedStatementCreator, keyHolder);
 		return keyHolder.getKey().longValue();
+
 	}
-
-	public Page<Pin> findById(long id, Pageable pageable) {
-		String sql = pagingQuery(SELECT + " WHERE p.id = ?", pageable);
-
-		List<Pin> list = jdbcTemplate.query(sql, new PinRowMapper(), id);
+	
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public List<Pin> findById(long id) {
+		String sql = SELECT + " WHERE p.id = ?";
+		return jdbcTemplate.query(sql, new PinRowMapper(), id);
+	}
+	
+	/**
+	 * 
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Pin> findAllPin(Pageable pageable) {
+		String sql = pagingQuery(SELECT, pageable);
+		List<Pin> list = jdbcTemplate.query(sql, new PinRowMapper());
+		
 		return new PageImpl<Pin>(list, pageable, count("Pin"));
-
 	}
-
-	public Page<Pin> findByCategoryId(long categoryId, Pageable pageable) {
+	
+	/**
+	 * 
+	 * @param categoryId
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Pin> findByCategoryId(long categoryId, Pageable pageable){
 		String sql = pagingQuery(SELECT + " WHERE p.categoryId = ?", pageable);
-
 		List<Pin> list = jdbcTemplate.query(sql, new PinRowMapper(), categoryId);
+		
 		return new PageImpl<Pin>(list, pageable, count("Pin"));
 
 	}
-
-	public Page<Pin> findByRegionId(long regionId, Pageable pageable) {
+	
+	
+	/**
+	 * 
+	 * @param regionId
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Pin> findByRegionId(long regionId, Pageable pageable){
 		String sql = pagingQuery(SELECT + " WHERE p.regionId = ?", pageable);
-
 		List<Pin> list = jdbcTemplate.query(sql, new PinRowMapper(), regionId);
+		
 		return new PageImpl<Pin>(list, pageable, count("Pin"));
-
 	}
-
-	public Page<Pin> findByMemberId(long memberId, Pageable pageable) {
+	
+	
+	/**
+	 * 
+	 * @param memberId
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Pin> findByMemberId(long memberId, Pageable pageable){
 		String sql = pagingQuery(SELECT + " WHERE p.memberId = ?", pageable);
-
 		List<Pin> list = jdbcTemplate.query(sql, new PinRowMapper(), memberId);
+		
 		return new PageImpl<Pin>(list, pageable, count("Pin"));
-
 	}
 }

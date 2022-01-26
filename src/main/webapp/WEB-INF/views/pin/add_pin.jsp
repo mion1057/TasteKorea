@@ -24,15 +24,15 @@
 				<form:form modelAttribute="pinCommand" method="post"
 					enctype="multipart/form-data">
 					<form:input path="title" />
-					<form:input path="photo" type="file" />
+					<form:input path="imagePath" type="file" />
 					<form:select path="region" required="required">
 						<option value="0">------</option>
 						<form:options items="${regionList}" itemLabel="eng"
 							itemValue="regionId" />
 					</form:select>
-					<form:select path="pinCategory" required="required">
+					<form:select path="category" required="required">
 						<option value="0">-------</option>
-						<form:options items="${pinCategoryList }" itemLabel="" itemValue="pinId"/>
+						<form:options items="${pinCategoryList}" itemLabel="category" itemValue="categoryId"/>
 					</form:select>
 					<form:input path="mapData" />
 					<form:input path="details" />

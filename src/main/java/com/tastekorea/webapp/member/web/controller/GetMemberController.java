@@ -1,5 +1,7 @@
 package com.tastekorea.webapp.member.web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.common.Constants;
 import com.tastekorea.webapp.common.vo.PageMaker;
 import com.tastekorea.webapp.member.domain.TasteMember;
@@ -37,7 +40,9 @@ public class GetMemberController {
 	 */
 	@GetMapping("/member/{type}/list")
 	public String listMembers(@PathVariable String type, 
-			@RequestParam(defaultValue="1") int pageNum, Model model) {
+			@RequestParam(defaultValue="1") int pageNum, HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		System.out.println(user.getEmail());
 		
 		log.debug("pageNum : " + pageNum);
 		pageNum = pageNum < 1 ? 0 : pageNum - 1;
@@ -50,9 +55,12 @@ public class GetMemberController {
 			memberPage = memberService.getTravelerList(pageable);
 			nextPage = "member/list_travelers";
 		}else {
+			session.getAttribute("user");
 			memberPage = memberService.getCompanionList(pageable);
 			nextPage = "member/list_companions";
 		}
+		
+		model.addAttribute("user", user);
 		model.addAttribute("pageMaker", new PageMaker<TasteMember>(memberPage));
 		
 		return nextPage;

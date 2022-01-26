@@ -1,7 +1,6 @@
 package com.tastekorea.webapp.auth.web.command;
 
 import com.tastekorea.webapp.common.domain.CommonEntity;
-import com.tastekorea.webapp.member.domain.ForeignLanguage;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
 import com.tastekorea.webapp.member.domain.Region;
 
@@ -35,7 +34,7 @@ public class User extends CommonEntity {
 	public String getDetail() {
 		return "TasteMember [email=" + email + ", name=" + firstName + 
 				lastName + ", region=" + region.getEng() +", phone=" + phone + 
-				", ssn=" + ssn + ", sex=" + sex + 
+				", ssn=" + ssn + ", sex=" + sex + ", guide = "+ guide +
 				", profileImage=" + profileImage //+ ", provision=" + provision 
 				+ ", introduction=" + introduction + "]";
 	}

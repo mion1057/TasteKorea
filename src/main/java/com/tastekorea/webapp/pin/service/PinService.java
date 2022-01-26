@@ -9,4 +9,6 @@ public interface PinService {
 	Pin addPin(Pin pin);
 	
 	Page<Pin> findPinById(long id, Pageable pageable);
+	
+	Page<Pin> findAllPin(Pageable pageable);
 }

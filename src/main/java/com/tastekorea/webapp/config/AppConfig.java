@@ -4,9 +4,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.tastekorea.webapp.auth.web.controller.LoginController;
 import com.tastekorea.webapp.auth.web.controller.MyPageController;
+import com.tastekorea.webapp.board.dao.ArticleDao;
+import com.tastekorea.webapp.board.service.ArticleService;
+import com.tastekorea.webapp.board.service.ArticleServiceImpl;
+import com.tastekorea.webapp.board.web.controller.AddArticleController;
+import com.tastekorea.webapp.board.web.controller.ListArticleController;
+import com.tastekorea.webapp.common.dao.AppHitDao;
 import com.tastekorea.webapp.common.dao.AppReplyDao;
-import com.tastekorea.webapp.common.service.AppReplyServiceImpl;
+import com.tastekorea.webapp.common.dao.TasteDao;
+import com.tastekorea.webapp.common.service.AppReplyManager;
 import com.tastekorea.webapp.common.service.FileUploader;
 import com.tastekorea.webapp.common.service.UploadResourceManager;
 import com.tastekorea.webapp.common.web.controller.AppReplyController;
@@ -24,9 +32,14 @@ import com.tastekorea.webapp.member.service.TasteMemberService;
 import com.tastekorea.webapp.member.service.TasteMemberServiceImpl;
 import com.tastekorea.webapp.member.web.controller.AddMemberController;
 import com.tastekorea.webapp.member.web.controller.GetMemberController;
+import com.tastekorea.webapp.pin.dao.PinDao;
+import com.tastekorea.webapp.pin.dao.PinMapDao;
+import com.tastekorea.webapp.pin.service.PinMapService;
+import com.tastekorea.webapp.pin.service.PinMapServiceImpl;
 import com.tastekorea.webapp.pin.service.PinService;
 import com.tastekorea.webapp.pin.service.PinServiceImpl;
 import com.tastekorea.webapp.pin.web.controller.AddPinController;
+import com.tastekorea.webapp.pin.web.controller.GetPinController;
 
 /**
  * 
@@ -36,20 +49,41 @@ import com.tastekorea.webapp.pin.web.controller.AddPinController;
 @Configuration
 @ComponentScan(basePackages="com.tastekorea.webapp")
 public class AppConfig {
-
-	@Bean
-	public MainIndexController mainIndexController(){
-		return new MainIndexController();
-	}
 	
 	//---------------------------
 	//	 common module
 	//---------------------------
 	
 	@Bean
+	public AppReplyDao appReplyDao() {
+		return new AppReplyDao();
+	}
+	
+	@Bean
+	public AppReplyManager appReplyManager() {
+		return new AppReplyManager();
+	}
+	
+	@Bean
 	public AppReplyController appReplyController() {
 		return new AppReplyController();
 	}
+	
+	@Bean
+	public AppHitDao appHitDao() {
+		return new AppHitDao();
+	}
+
+	@Bean
+	public MainIndexController mainIndexController(){
+		return new MainIndexController();
+	}
+	
+	@Bean
+	public TasteDao tasteDao() {
+		return new TasteDao();
+	}
+
 	
 	//---------------------------
 	//	 file upload module
@@ -79,8 +113,7 @@ public class AppConfig {
 	@Bean
 	public RegionService regionServiceImpl() {
 		return new RegionServiceImpl();
-	}
-	
+	}	
 	
 	@Bean
 	public ForeignLanguageDao foreignLanguageDao() {
@@ -122,14 +155,28 @@ public class AppConfig {
 		return new GetMemberController();
 	}
 	
+	//---------------------------
+	//		login module
+	//---------------------------
+	@Bean
+	public LoginController loginController() {
+		return new LoginController();
+	}
+	
 	@Bean
 	public MyPageController myPageController() {
 		return new MyPageController();
 	}
 	
+	
 	//---------------------------
 	//		pin module
 	//---------------------------
+	
+	@Bean
+	public PinDao pinDao() {
+		return new PinDao();
+	}
 	
 	@Bean
 	public PinService pinServiceImpl() {
@@ -142,13 +189,43 @@ public class AppConfig {
 	}
 	
 	@Bean
-	public AppReplyDao appReplyDao() {
-		return new AppReplyDao();
+	public GetPinController getPinController() {
+		return new GetPinController();
 	}
 	
 	@Bean
-	public AppReplyServiceImpl	appReplyServiceImpl() {
-		return new AppReplyServiceImpl();
+	public PinMapDao pinMapDao() {
+		return new PinMapDao();
 	}
+	
+	@Bean
+	public PinMapService pinMapServiceImpl() {
+		return new PinMapServiceImpl();
+	}
+	
+	//---------------------------
+	//		 Board module
+	//---------------------------
+	
+	@Bean
+	public ArticleDao articleDao() {
+		return new ArticleDao();
+	}
+
+	@Bean
+	public ArticleService articleServiceImpl() {
+		return new ArticleServiceImpl();
+	}
+	
+	@Bean 
+	public AddArticleController addArticleController() {
+		return new AddArticleController();
+	}
+	
+	@Bean 
+	public ListArticleController listArticleController() {
+		return new ListArticleController();
+	}
+	
 	
 }

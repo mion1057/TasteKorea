@@ -75,7 +75,7 @@ public class TasteMemberDao extends TasteDao {
 	 * @return
 	 */
 	public TasteMember findById(long id) {
-		String sql = SELECT + " WHERE id = ?";
+		String sql = SELECT + " WHERE m.id = ?";
 		return jdbcTemplate.queryForObject(sql, new TasteMemberRowMapper(), id);
 	}
 	

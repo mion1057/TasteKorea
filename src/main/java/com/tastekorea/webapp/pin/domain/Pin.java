@@ -14,19 +14,18 @@ import com.tastekorea.webapp.member.domain.TasteMember;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 
 /**
- * 사진에 대한 설명, 지역, 날짜, 댓글, 좋아요
+ * companion이 등록하는 여행 사진
  * 
- * @author Kaminish
+ * 
+ * @author 'rohyh'
  *
  */
+
 @Getter
 @Setter
 @Entity
-@ToString
 public class Pin extends CommonEntity{
 	   
 	   @ManyToOne
@@ -52,6 +51,17 @@ public class Pin extends CommonEntity{
 	   private int like;
 	   private int dislike;
 	   
+	   public Pin() {
+		   super();
+	   }
+	   
+	   public Pin(long id) {
+		   super.id = id;
+	   }
+	   
+	   public Pin(String mapData) {
+		   super();
+		   this.mapData = mapData;
+	   }
+	   
 	}
-
-

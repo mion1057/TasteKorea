@@ -10,7 +10,7 @@ public class MainIndexController {
 	
 	@GetMapping("/")
 	public String index(HttpSession session) {
-		session.getAttribute("member");
+		session.getAttribute("user");
 		return "index";
 	}
 }

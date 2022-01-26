@@ -10,11 +10,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.common.Constants;
+import com.tastekorea.webapp.common.vo.PageMaker;
 import com.tastekorea.webapp.pin.domain.Pin;
 import com.tastekorea.webapp.pin.service.PinService;
 
@@ -23,9 +23,16 @@ public class GetPinController {
 	
 	@Autowired
 	private PinService pinService;
-	
-	@GetMapping("/pin/{alias}/find")
-	public String findById(@PathVariable String alias,HttpSession session, 
+	/**
+	 * 전체 핀 찾기
+	 * @param alias
+	 * @param session
+	 * @param pageNum
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/pin/find")
+	public String findById(HttpSession session, 
 			@RequestParam(defaultValue="1") int pageNum, Model model){
 		User user = (User) session.getAttribute("user");
 		
@@ -33,12 +40,12 @@ public class GetPinController {
 		Pageable pageable = PageRequest.of(pageNum, Constants.FETCH_SIZE, 
 											Sort.Direction.DESC, "regDate");
 		
-		alias = user.getAlias();
 		
-		Page<Pin> page = pinService.findPinById(user.getId(), pageable);
+		Page<Pin> page = pinService.findAllPin(pageable);
 		
-		model.addAttribute("pinList", page);
+		model.addAttribute("user", user);
+		model.addAttribute("pinList", new PageMaker<Pin>(page));
 		
-		return "/pin/page_pin";
+		return "/pin/page_allPin";
 	}
 }

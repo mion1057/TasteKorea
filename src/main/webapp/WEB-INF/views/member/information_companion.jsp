@@ -45,7 +45,7 @@
 							<h2>birth</h2>
 							<input type="text" id="ssn" value="${user.ssn }" readonly="readonly">
 							<h2>region</h2>
-							<input type="text" id="region" value="${user.region }" readonly="readonly">
+							<input type="text" id="region" value="${user.region.kor }" readonly="readonly">
 							<c:forEach var="language" items="${list}">
 								<h2>language</h2>
                             	<input type="text" id="language" 
@@ -56,9 +56,7 @@
 							</c:forEach>
 							<h3>introduction</h3>
 							<div class="introduction">
-								<pre>
-                                        <!-- 이부분에 인트로덕현 EL넣으면 됨-->
-                                    </pre>
+								<pre>${user.introduction }</pre>
 							</div>
 						</div>
 						<div class="profile_third">

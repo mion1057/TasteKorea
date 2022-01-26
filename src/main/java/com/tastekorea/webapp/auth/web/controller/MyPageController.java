@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.tastekorea.webapp.auth.web.command.User;
 import com.tastekorea.webapp.auth.web.exception.LoginFailException;
 import com.tastekorea.webapp.member.domain.LanguageSkill;
+import com.tastekorea.webapp.member.domain.TasteMember;
 import com.tastekorea.webapp.member.service.TasteMemberService;
+import com.tastekorea.webapp.member.web.command.MemberCommand;
 
 @Controller
 public class MyPageController {
@@ -44,7 +46,15 @@ public class MyPageController {
 		return nextPage;
 		
 	}
-
+	@GetMapping("/member/companion/info")
+	public String companionDetail(MemberCommand memberCommand, Model model) {
+		
+		TasteMember comlist = memberService.getMember(memberCommand.getId());
+		
+		model.addAttribute("comlist",comlist);
+		
+		return "/member/information_companions_detail";
+	}
 	
 	
 	

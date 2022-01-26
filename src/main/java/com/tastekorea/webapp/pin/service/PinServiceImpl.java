@@ -26,4 +26,10 @@ public class PinServiceImpl implements PinService{
 		return (Page<Pin>) pinDao.findByMemberId(id, pageable);
 		
 	}
+
+	@Override
+	public Page<Pin> findAllPin(Pageable pageable) {
+		
+		return pinDao.findAllPin(pageable);
+	}
 }

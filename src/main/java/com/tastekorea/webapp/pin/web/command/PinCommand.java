@@ -5,27 +5,53 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tastekorea.webapp.common.domain.AppReply;
-import com.tastekorea.webapp.member.domain.Region;
-import com.tastekorea.webapp.member.domain.TasteMember;
-import com.tastekorea.webapp.pin.domain.PinCategory;
 
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * 
+ * @author "rohyh"
+ *
+ */
 @Getter
 @Setter
-public class PinCommand{
-	
-	private TasteMember member;
-	private Region region;
-	private String title;
-	private PinCategory category;
+public class PinCommand {
+
+	// ------------------------
+	// Pin을 등록한 가이드 정보
+	// ------------------------
+	private long member;
+
+	// ------------------------
+	// 지역 ex)서울, 부산, 데구 등등
+	// ------------------------
+	private long region;
+
+	// ------------------------
+	// 미리 정의된 관련 특성,속성등을 선택하여
+	// 정렬, 구분에 용이성
+	// ------------------------
+	private long category;
+
+	// ------------------------
+	// 댓글
+	// ------------------------
 	private List<AppReply> replyList;
+
+	// ------------------------
+	// 사진, 제목, 상세정보
+	// ------------------------
 	private MultipartFile imagePath;
-	private String pinRegion;			//지역(ex: 서울, 대구)
-	private String description;			//설명 (영어)
+	private String title;
+	private String description;
+
+	// ------------------------
+	// 지도 정보
+	// ------------------------
+	private String mapData;
+	
 	private int like;
 	private int dislike;
-	private int readCount;
-	
+
 }
